@@ -1,1 +1,14 @@
-<p>sidenav works!</p>
+<mat-drawer-container class="sidenav" autosize>
+  <mat-drawer
+    #drawer
+    class="sidenav-area mat-elevation-z8"
+    mode="side"
+    [opened]="isMenuOpen"
+  >
+    <img src="assets/images/logos/nbaliga-logo.svg" alt="logo" />
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <button class="sidenav-content-btn" (click)="drawer.toggle()"></button>
+  </div>
+</mat-drawer-container>
