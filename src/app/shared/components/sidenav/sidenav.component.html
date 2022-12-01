@@ -2,10 +2,42 @@
   <mat-drawer
     #drawer
     class="sidenav-area mat-elevation-z8"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
     mode="side"
     [opened]="isMenuOpen"
   >
     <img src="assets/images/logos/nbaliga-logo.svg" alt="logo" />
+
+    <mat-nav-list class="sidenav-area-menu">
+      <a mat-list-item><mat-icon>home</mat-icon>Home</a>
+
+      <a mat-list-item [matMenuTriggerFor]="liga"
+        ><mat-icon>emoji_events</mat-icon>Liga</a
+      >
+
+      <a mat-list-item [matMenuTriggerFor]="liga"
+        ><mat-icon>groups</mat-icon>Times</a
+      >
+
+      <a mat-list-item><mat-icon>percent</mat-icon>Estatísticas</a>
+
+      <a mat-list-item [matMenuTriggerFor]="liga"
+        ><mat-icon>account_tree</mat-icon>Playoffs</a
+      >
+
+      <a mat-list-item [matMenuTriggerFor]="liga"
+        ><mat-icon>business_center</mat-icon>Pós-Temporada</a
+      >
+
+      <a mat-list-item><mat-icon>login</mat-icon>Login</a>
+
+      <mat-menu #liga="matMenu">
+        <button mat-menu-item>Home</button>
+      </mat-menu>
+    </mat-nav-list>
   </mat-drawer>
 
   <div class="sidenav-content">

@@ -9,8 +9,28 @@
 
     img {
       width: 100%;
-      height: 110px;
+      height: 150px;
       margin: 13px auto 16px auto;
+    }
+
+    &-menu {
+      margin: 10px;
+
+      a {
+        &:hover {
+          background-color: $secondary-color;
+          border-radius: 10px;
+        }
+      }
+
+      .mat-icon {
+        margin-right: 0.6rem;
+        vertical-align: text-bottom;
+
+        &:hover {
+          color: $white;
+        }
+      }
     }
   }
 
