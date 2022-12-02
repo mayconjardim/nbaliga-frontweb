@@ -1,20 +1,20 @@
-import { navData } from './nav-item';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import {
   BreakpointObserver,
   Breakpoints,
   BreakpointState,
 } from '@angular/cdk/layout';
-//Material
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { map, Observable } from 'rxjs';
+import { eastData } from './east-data';
+import { westData } from './west-data';
 
+//Material
 @Component({
   selector: 'sidenav',
   standalone: true,
@@ -26,11 +26,16 @@ import { map, Observable } from 'rxjs';
     MatListModule,
     MatMenuModule,
   ],
+
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
   @ViewChild('drawer') drawer: any;
+
+  eastNav = eastData;
+  westNav = westData;
+  imgLogo = 'assets/images/logos/';
 
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)

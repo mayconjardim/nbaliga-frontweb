@@ -14,28 +14,58 @@
     <mat-nav-list class="sidenav-area-menu">
       <a mat-list-item><mat-icon>home</mat-icon>Home</a>
 
-      <a mat-list-item [matMenuTriggerFor]="liga"
+      <a mat-list-item [matMenuTriggerFor]="league"
         ><mat-icon>emoji_events</mat-icon>Liga</a
       >
 
-      <a mat-list-item [matMenuTriggerFor]="liga"
+      <a mat-list-item [matMenuTriggerFor]="teams"
         ><mat-icon>groups</mat-icon>Times</a
       >
 
       <a mat-list-item><mat-icon>percent</mat-icon>Estatísticas</a>
 
-      <a mat-list-item [matMenuTriggerFor]="liga"
+      <a mat-list-item [matMenuTriggerFor]="teams"
         ><mat-icon>account_tree</mat-icon>Playoffs</a
       >
 
-      <a mat-list-item [matMenuTriggerFor]="liga"
+      <a mat-list-item [matMenuTriggerFor]="teams"
         ><mat-icon>business_center</mat-icon>Pós-Temporada</a
       >
 
       <a mat-list-item><mat-icon>login</mat-icon>Login</a>
 
-      <mat-menu #liga="matMenu">
-        <button mat-menu-item>Home</button>
+      <mat-menu #league="matMenu">
+        <a mat-menu-item><mat-icon>calendar_month</mat-icon>Calendário</a>
+        <a mat-menu-item><mat-icon>elevator</mat-icon>Draft Picks</a>
+        <a mat-menu-item><mat-icon>attach_money</mat-icon>Salary Cap</a>
+        <a mat-menu-item><mat-icon>leaderboard</mat-icon>Head-To-Head</a>
+      </mat-menu>
+
+      <mat-menu #teams="matMenu">
+        <a mat-menu-item [matMenuTriggerFor]="east"
+          ><mat-icon>east</mat-icon>East</a
+        >
+        <a mat-menu-item [matMenuTriggerFor]="west"
+          ><mat-icon>west</mat-icon>West</a
+        >
+      </mat-menu>
+
+      <mat-menu #east="matMenu" class="drop-menu">
+        <a mat-menu-item *ngFor="let team of eastNav">
+          <mat-icon
+            ><img [src]="imgLogo + [team.logo]" alt="team logo"
+          /></mat-icon>
+          {{ team.label }}
+        </a>
+      </mat-menu>
+
+      <mat-menu #west="matMenu" class="drop-menu">
+        <a mat-menu-item *ngFor="let team of westNav">
+          <mat-icon
+            ><img [src]="imgLogo + [team.logo]" alt="team logo"
+          /></mat-icon>
+          {{ team.label }}
+        </a>
       </mat-menu>
     </mat-nav-list>
   </mat-drawer>
