@@ -24,33 +24,35 @@
 
       <a mat-list-item><mat-icon>percent</mat-icon>Estatísticas</a>
 
-      <a mat-list-item [matMenuTriggerFor]="teams"
+      <a mat-list-item [matMenuTriggerFor]="playoffs"
         ><mat-icon>account_tree</mat-icon>Playoffs</a
       >
 
-      <a mat-list-item [matMenuTriggerFor]="teams"
+      <a mat-list-item [matMenuTriggerFor]="pos"
         ><mat-icon>business_center</mat-icon>Pós-Temporada</a
       >
 
       <a mat-list-item><mat-icon>login</mat-icon>Login</a>
 
       <mat-menu #league="matMenu">
-        <a mat-menu-item><mat-icon>calendar_month</mat-icon>Calendário</a>
+        <a mat-menu-item [ngStyle]="setMyStyles()">
+          <mat-icon>calendar_month</mat-icon>Calendário
+        </a>
         <a mat-menu-item><mat-icon>elevator</mat-icon>Draft Picks</a>
-        <a mat-menu-item><mat-icon>attach_money</mat-icon>Salary Cap</a>
-        <a mat-menu-item><mat-icon>leaderboard</mat-icon>Head-To-Head</a>
+        <a mat-menu-item> <mat-icon>attach_money</mat-icon>Salary Cap </a>
+        <a mat-menu-item> <mat-icon>leaderboard</mat-icon>Head-To-Head </a>
       </mat-menu>
 
       <mat-menu #teams="matMenu">
-        <a mat-menu-item [matMenuTriggerFor]="east"
-          ><mat-icon>east</mat-icon>East</a
-        >
-        <a mat-menu-item [matMenuTriggerFor]="west"
-          ><mat-icon>west</mat-icon>West</a
-        >
+        <a mat-menu-item [matMenuTriggerFor]="east" [ngStyle]="setMyStyles()">
+          <mat-icon>east</mat-icon>East
+        </a>
+        <a mat-menu-item [matMenuTriggerFor]="west">
+          <mat-icon>west</mat-icon>West
+        </a>
       </mat-menu>
 
-      <mat-menu #east="matMenu" class="drop-menu">
+      <mat-menu #east="matMenu">
         <a mat-menu-item *ngFor="let team of eastNav">
           <mat-icon
             ><img [src]="imgLogo + [team.logo]" alt="team logo"
@@ -59,7 +61,7 @@
         </a>
       </mat-menu>
 
-      <mat-menu #west="matMenu" class="drop-menu">
+      <mat-menu #west="matMenu">
         <a mat-menu-item *ngFor="let team of westNav">
           <mat-icon
             ><img [src]="imgLogo + [team.logo]" alt="team logo"
@@ -67,10 +69,28 @@
           {{ team.label }}
         </a>
       </mat-menu>
+
+      <mat-menu #playoffs="matMenu">
+        <a mat-menu-item [ngStyle]="setMyStyles()"
+          ><mat-icon>calendar_month</mat-icon>Tabela</a
+        >
+        <a mat-menu-item><mat-icon>elevator</mat-icon>Estatísticas</a>
+      </mat-menu>
+
+      <mat-menu #pos="matMenu">
+        <a mat-menu-item [ngStyle]="setMyStyles()">
+          <mat-icon>calendar_month</mat-icon>Draft Central
+        </a>
+        <a mat-menu-item><mat-icon>elevator</mat-icon>Free Agency</a>
+      </mat-menu>
     </mat-nav-list>
   </mat-drawer>
 
   <div class="sidenav-content">
-    <button class="sidenav-content-btn" (click)="drawer.toggle()"></button>
+    <button
+      mat-icon-button
+      class="sidenav-content-btn"
+      (click)="drawer.toggle()"
+    ></button>
   </div>
 </mat-drawer-container>

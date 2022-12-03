@@ -32,10 +32,10 @@ import { westData } from './west-data';
 })
 export class SidenavComponent implements OnInit {
   @ViewChild('drawer') drawer: any;
-
   eastNav = eastData;
   westNav = westData;
   imgLogo = 'assets/images/logos/';
+  menu = 'background: red';
 
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -65,5 +65,12 @@ export class SidenavComponent implements OnInit {
     if (this.drawer._mode == 'over') {
       this.drawer.close();
     }
+  }
+
+  setMyStyles() {
+    let styles = {
+      width: '210px',
+    };
+    return styles;
   }
 }
