@@ -10,7 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
 import { map, Observable } from 'rxjs';
+
 import { eastData } from './east-data';
 import { westData } from './west-data';
 
@@ -20,6 +22,7 @@ import { westData } from './west-data';
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
@@ -35,7 +38,6 @@ export class SidenavComponent implements OnInit {
   eastNav = eastData;
   westNav = westData;
   imgLogo = 'assets/images/logos/';
-  menu = 'background: red';
 
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)

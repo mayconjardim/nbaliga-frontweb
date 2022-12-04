@@ -1,1 +1,79 @@
-<p>standings works!</p>
+<table class="table table-dark table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">EAST CONFERENCE</th>
+      <th scope="col">W-L</th>
+      <th scope="col">PCT</th>
+      <th scope="col">GB</th>
+      <th scope="col">PF</th>
+      <th scope="col">PA</th>
+      <th scope="col">DIFF</th>
+      <th scope="col">HOME</th>
+      <th scope="col">ROAD</th>
+      <th scope="col">STRK</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of teamsEast()">
+      <td scope="row">
+        <mat-icon
+          ><img [src]="imgLogo + [team.name] + '.svg'" alt="team logo"
+        /></mat-icon>
+        <a routerLink="/">{{ team.teamName }}</a>
+      </td>
+      <td>{{ team.totalWins }}-{{ team.totalLosses }}</td>
+      <td>{{ leading(team.win_) }}</td>
+      <td>{{ team.gb | number : "1.1-1" }}</td>
+      <td>{{ team.pf | number : "1.1-1" }}</td>
+      <td>{{ team.pa | number : "1.1-1" }}</td>
+      <td [style.color]="team.diff > 0 ? 'green' : 'red'">
+        {{ team.diff | number : "1.1-1" }}
+      </td>
+      <td>{{ team.homeWins }}- {{ team.homeLosses }}</td>
+      <td>{{ team.roadWins }}- {{ team.roadLosses }}</td>
+      <td [style.color]="team.strk.includes('W') ? 'green' : 'red'">
+        {{ team.strk }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-dark table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">WEST CONFERENCE</th>
+      <th scope="col">W-L</th>
+      <th scope="col">PCT</th>
+      <th scope="col">GB</th>
+      <th scope="col">PF</th>
+      <th scope="col">PA</th>
+      <th scope="col">DIFF</th>
+      <th scope="col">HOME</th>
+      <th scope="col">ROAD</th>
+      <th scope="col">STRK</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of teamsWest()">
+      <td scope="row">
+        <mat-icon
+          ><img [src]="imgLogo + [team.name] + '.svg'" alt="team logo"
+        /></mat-icon>
+        <a routerLink="/">{{ team.teamName }}</a>
+      </td>
+      <td>{{ team.totalWins }}-{{ team.totalLosses }}</td>
+      <td>{{ leading(team.win_) }}</td>
+      <td>{{ team.gb | number : "1.1-1" }}</td>
+      <td>{{ team.pf | number : "1.1-1" }}</td>
+      <td>{{ team.pa | number : "1.1-1" }}</td>
+      <td [style.color]="team.diff > 0 ? 'green' : 'red'">
+        {{ team.diff | number : "1.1-1" }}
+      </td>
+      <td>{{ team.homeWins }}- {{ team.homeLosses }}</td>
+      <td>{{ team.roadWins }}- {{ team.roadLosses }}</td>
+      <td [style.color]="team.strk.includes('W') ? 'green' : 'red'">
+        {{ team.strk }}
+      </td>
+    </tr>
+  </tbody>
+</table>

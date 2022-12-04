@@ -1,0 +1,41 @@
+@import "../../../../assets/scss/variables.scss";
+
+.table {
+  width: 100%;
+  border-top: 2px solid $secondary-color;
+  font-size: 10px;
+  white-space: nowrap;
+
+  thead th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    padding-right: 100px;
+  }
+
+  tbody {
+    td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+    }
+
+    img {
+      width: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $secondary-color;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .table {
+  }
+}
