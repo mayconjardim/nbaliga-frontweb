@@ -1,4 +1,4 @@
-export interface Schedule {
+export interface Results {
   content: [
     {
       day: number;
