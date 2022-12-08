@@ -19,10 +19,11 @@ export class ResultsService {
     }
 
     return this.http
-      .get<Results[]>(`${API_CONFIG.baseUrl}/schedule/results?size=10`)
+      .get<Results[]>(`${API_CONFIG.baseUrl}/schedule/results?size=6`)
       .pipe(
         tap((results) => {
           this.results = results;
+          console.log(results);
         })
       );
   }
