@@ -1,13 +1,13 @@
 @import "../../../../assets/scss/variables.scss";
 
-.table {
-  margin-bottom: 14px;
+.card {
   background-color: $primary-color;
-  color: $white;
-  border-top: 2.5px solid $secondary-color;
-  font-size: 10px;
 
-  .mat-icon {
-    vertical-align: text-bottom;
+  border-top: 2.5px solid $secondary-color;
+  border-radius: 0;
+
+  &-header {
+    font-size: 10px;
+    font-weight: 700;
   }
 }
