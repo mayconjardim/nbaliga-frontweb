@@ -1,8 +1,9 @@
-import { Results } from './../../models/results';
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ResultsService } from '../../services/results.service';
+import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+
+import { Champs } from '../../models/champs';
+import { ChampsService } from '../../services/champs.service';
 
 @Component({
   selector: 'results',
@@ -12,14 +13,12 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./results.component.scss'],
 })
 export class ResultsComponent {
-  results: Results[] = [];
+  champs: Champs[] = [];
   imgLogo = 'assets/images/logos/';
 
-  constructor(private service: ResultsService) {}
+  constructor(private service: ChampsService) {}
 
   ngOnInit(): void {
-    this.service
-      .read()
-      .subscribe((results: Results[]) => (this.results = results));
+    this.service.read().subscribe((champs: Champs[]) => (this.champs = champs));
   }
 }

@@ -1,3 +1,17 @@
-<div class="card">
-  <div class="card-header">FINALS HISTORY</div>
+<div class="finals-card">
+  <div class="finals-card-header">FINALS HISTORY</div>
+  <div class="finals-card-body" *ngFor="let champ of champs">
+    <div class="finals-card-body-winner" style="background-color: red">
+      <p>{{ champ.season }}</p>
+      <img src="assets/images/logos/Bulls.svg" alt="" />
+      <p>{{ champ.champ }}</p>
+      <p>{{ champ.champWins }}</p>
+    </div>
+    <div class="finals-card-body-loser" style="background-color: blue">
+      <p>{{ champ.loserWins }}</p>
+      <p>{{ champ.loser }}</p>
+      <img src="assets/images/logos/Clippers.svg" alt="" />
+      <p>ﾠ</p>
+    </div>
+  </div>
 </div>
