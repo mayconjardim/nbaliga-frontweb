@@ -1,39 +1,12 @@
 @import "../../../../assets/scss/variables.scss";
 
-.finals-card {
-  background-color: $primary-color;
-  border-top: 2.5px solid $secondary-color;
-  border-radius: 0;
-  color: $white;
+.table {
+  width: 100%;
+  border-top: 2px solid $secondary-color;
   font-size: 10px;
-  font-weight: 700;
+  white-space: nowrap;
 
-  &-header {
-    height: 36px;
-    padding: 7px;
-    font-size: 10px;
-    font-weight: 700;
-  }
-
-  &-body {
-    display: flex;
-    flex-flow: row wrap;
-    padding-bottom: 8px;
-
-    img {
-      width: 25px;
-    }
-
-    &-winner {
-      display: flex;
-      justify-content: space-around;
-      width: 50%;
-    }
-
-    &-loser {
-      display: flex;
-      justify-content: space-around;
-      width: 50%;
-    }
+  .mat-icon {
+    vertical-align: text-bottom;
   }
 }

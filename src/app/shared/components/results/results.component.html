@@ -1,17 +1,31 @@
-<div class="finals-card">
-  <div class="finals-card-header">FINALS HISTORY</div>
-  <div class="finals-card-body" *ngFor="let champ of champs">
-    <div class="finals-card-body-winner" style="background-color: red">
-      <p>{{ champ.season }}</p>
-      <img src="assets/images/logos/Bulls.svg" alt="" />
-      <p>{{ champ.champ }}</p>
-      <p>{{ champ.champWins }}</p>
-    </div>
-    <div class="finals-card-body-loser" style="background-color: blue">
-      <p>{{ champ.loserWins }}</p>
-      <p>{{ champ.loser }}</p>
-      <img src="assets/images/logos/Clippers.svg" alt="" />
-      <p>ﾠ</p>
-    </div>
-  </div>
+<div class="container">
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th scope="col">SEASON</th>
+        <th scope="col">CHAMPIONS</th>
+        <th scope="col">RESULT</th>
+        <th scope="col">OPPONENT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let champ of champs">
+        <th scope="row">{{ champ.season }}</th>
+        <td>
+          <mat-icon
+            ><img [src]="imgLogo + [champ.champ] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ champ.champ }}
+        </td>
+        <td>{{ champ.champWins }}-{{ champ.loserWins }}</td>
+        <td>
+          <mat-icon
+            ><img
+              [src]="imgLogo + [champ.loser] + '.svg'"
+              alt="team logo" /></mat-icon
+          >{{ champ.loser }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
