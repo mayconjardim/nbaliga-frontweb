@@ -1,4 +1,4 @@
-export interface Standings {
+export interface Team {
   id?: number;
   league: number;
   cityName: string;
