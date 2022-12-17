@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./public/home/home.module').then((m) => m.HomeModule),
   },
+  {
+    path: 'team',
+    loadChildren: () =>
+      import('./public/team/team.module').then((m) => m.TeamModule),
+  },
 
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', redirectTo: 'home' },

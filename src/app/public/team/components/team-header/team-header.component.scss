@@ -1,0 +1,78 @@
+@import "../../../../../assets/scss/variables.scss";
+@import "../../../../../assets/scss/teamsColors.scss";
+
+.card {
+  display: flex;
+  border: 1px solid $primary-color;
+  border-radius: 4px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 350px 400px;
+
+  &-body {
+    display: flex;
+
+    &-logo {
+      width: 120px;
+      margin-left: 10px;
+    }
+
+    &-name {
+      h5 {
+        margin: 50px 0 0 10px;
+        font-size: 20px;
+        font-weight: 800;
+      }
+
+      span {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &-stats {
+    .list-group {
+      display: flex;
+      justify-content: center;
+      .list-group-item {
+        flex-grow: 1;
+        background-color: transparent;
+        color: $white;
+        font-size: 10px;
+        font-weight: 700;
+        text-align: center;
+
+        span {
+          font-size: 10px;
+          font-weight: 700;
+        }
+
+        p {
+          padding: 0;
+          margin: 0;
+          font-size: 20px;
+          text-align: center;
+        }
+      }
+
+      .desk {
+        p {
+          font-size: 10px;
+          text-align: center;
+        }
+
+        span {
+          font-size: 8px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    .desk {
+      display: none;
+    }
+  }
+}
