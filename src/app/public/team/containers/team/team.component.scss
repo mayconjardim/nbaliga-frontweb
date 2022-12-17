@@ -1,33 +1,25 @@
 .team-grid {
   display: grid;
   margin: 5px;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   gap: 0px;
   height: 100%;
-}
 
-#item-header {
-  grid-row-start: 1;
-  grid-column-start: 1;
+  #grid-header {
+    grid-row-start: 1;
+    grid-column-start: 1;
 
-  grid-row-end: 2;
-  grid-column-end: 6;
-}
-#item-body {
-  //background-color: #d9da9c;
-  grid-row-start: 2;
-  grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 5;
+  }
+  #grid-body {
+    grid-row-start: 2;
+    grid-column-start: 1;
 
-  grid-row-end: 5;
-  grid-column-end: 5;
-}
-#item-side {
-  //background-color: #f8bbef;
-  grid-row-start: 2;
-  grid-column-start: 5;
-
-  grid-row-end: 5;
-  grid-column-end: 6;
+    grid-row-end: 4;
+    grid-column-end: 5;
+  }
 }
