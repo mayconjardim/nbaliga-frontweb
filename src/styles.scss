@@ -21,12 +21,17 @@ $my-theme: mat.define-dark-theme(
 //End Custom theme material
 
 @import "./assets/scss/variables.scss";
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   height: 100%;
+  box-sizing: border-box;
 }
 body {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: sans-serif, "Helvetica Neue";

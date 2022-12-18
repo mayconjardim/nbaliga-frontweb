@@ -20,7 +20,6 @@ export class ChampsService {
     return this.http.get<Champs[]>(`${API_CONFIG.baseUrl}/champs`).pipe(
       tap((champs) => {
         this.champs = champs;
-        console.log(champs);
       })
     );
   }

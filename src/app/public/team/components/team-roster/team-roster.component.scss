@@ -2,45 +2,46 @@
 @import "../../../../../assets/scss/teamsColors.scss";
 
 .container {
-  display: flex;
-  justify-content: space-around;
-
-  .card {
-    border-top: 1px solid $secondary-color;
-    margin: 10px;
-    border-radius: 4px;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 150px 150px;
-
-    &-body {
+  .player-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    .card {
+      border-top: 1px solid $secondary-color;
+      margin: 10px;
       border-radius: 4px;
-      background-color: $primary-color;
+      background-repeat: no-repeat;
+      background-position: top;
+      background-size: 150px 150px;
 
-      .list-group-item {
-        margin: 0;
-        padding: 0;
-        background: transparent;
-        font-size: 10px;
-        color: $white;
-        img {
-          margin-right: 4px;
+      &-body {
+        border-radius: 4px;
+        background-color: $primary-color;
+
+        .list-group-item {
+          margin: 0;
+          padding: 0;
+          background: transparent;
+          font-size: 10px;
+          color: $white;
+          img {
+            margin-right: 4px;
+          }
         }
       }
     }
   }
 }
-
 @media only screen and (max-width: 600px) {
   .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    .player-cards {
+      justify-content: space-between;
 
-    .card {
-      &-body {
-        .list-group-item {
-          font-size: 8px;
+      .card {
+        &-body {
+          .list-group-item {
+            font-size: 8px;
+          }
         }
       }
     }

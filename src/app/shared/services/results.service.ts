@@ -23,7 +23,6 @@ export class ResultsService {
       .pipe(
         tap((results) => {
           this.results = results;
-          console.log(results);
         })
       );
   }
