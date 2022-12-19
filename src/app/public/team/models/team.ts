@@ -1,3 +1,5 @@
+import { Player } from './../../player/models/player';
+
 export interface Team {
   id?: any;
   league: number;
@@ -65,5 +67,9 @@ export interface Team {
   divRank: number;
   confRank: number;
   arenaName: string;
-  players: [];
+  ppg: number;
+  oppg: number;
+  rpg: number;
+  apg: number;
+  players?: Player[];
 }

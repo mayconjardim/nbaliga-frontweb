@@ -19,7 +19,7 @@
         <mat-icon
           ><img [src]="imgLogo + [team.name] + '.svg'" alt="team logo"
         /></mat-icon>
-        <a routerLink="/">{{ team.teamName }}</a>
+        <a routerLink="/team/{{ team.id }}">{{ team.teamName }}</a>
       </td>
       <td>{{ team.totalWins }}-{{ team.totalLosses }}</td>
       <td>{{ leading(team.win_) }}</td>
@@ -59,7 +59,7 @@
         <mat-icon
           ><img [src]="imgLogo + [team.name] + '.svg'" alt="team logo"
         /></mat-icon>
-        <a routerLink="/">{{ team.teamName }}</a>
+        <a routerLink="/team/{{ team.id }}">{{ team.teamName }}</a>
       </td>
       <td>{{ team.totalWins }}-{{ team.totalLosses }}</td>
       <td>{{ leading(team.win_) }}</td>

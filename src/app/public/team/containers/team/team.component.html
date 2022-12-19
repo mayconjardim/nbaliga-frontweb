@@ -5,13 +5,15 @@
     </ng-container>
   </div>
   <div id="grid-body">
-    <div class="mat-tab">
-      <mat-tab-group animationDuration="3ms" dynamicHeight>
-        <mat-tab label="Roster"><team-roster></team-roster></mat-tab>
-        <mat-tab label="Contracts">Content 2</mat-tab>
-        <mat-tab label="Schedule">Content 3</mat-tab>
-        <mat-tab label="Statistics">Content 4</mat-tab>
-      </mat-tab-group>
-    </div>
+    <mat-tab-group animationDuration="3ms">
+      <mat-tab label="Roster"
+        ><ng-container *ngIf="!!team"
+          ><team-roster [team]="team"></team-roster>
+        </ng-container>
+      </mat-tab>
+      <mat-tab label="Contracts">Content 2</mat-tab>
+      <mat-tab label="Schedule">Content 3</mat-tab>
+      <mat-tab label="Statistics">Content 4</mat-tab>
+    </mat-tab-group>
   </div>
 </div>

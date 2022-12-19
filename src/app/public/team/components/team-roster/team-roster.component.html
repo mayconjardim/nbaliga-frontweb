@@ -1,143 +1,26 @@
 <div class="container">
-  <div class="player-cards">
-    <div class="card Lakers">
-      <img
-        src="../../../../../assets/images/players/Miller_Mike.png"
-        class="card-img-top"
-        alt="..."
-      />
-      <div class="card-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <img src="../../../../../assets/images/utils/b.png" />
-            <img src="../../../../../assets/images/utils/a.png" />
-            SF - Mike Miller
-          </li>
-          <li class="list-group-item">6'8", 218 lbs, 21 years</li>
-          <li class="list-group-item">25.9 PPG - 13.0 APG - 15.2 RPG</li>
-          <li class="list-group-item">$6,902,723 (2)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card Lakers">
-      <img
-        src="../../../../../assets/images/players/Miller_Mike.png"
-        class="card-img-top"
-        alt="..."
-      />
-      <div class="card-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <img src="../../../../../assets/images/utils/b.png" />
-            <img src="../../../../../assets/images/utils/a.png" />
-            SF - Mike Miller
-          </li>
-          <li class="list-group-item">6'8", 218 lbs, 21 years</li>
-          <li class="list-group-item">25.9 PPG - 13.0 APG - 15.2 RPG</li>
-          <li class="list-group-item">$6,902,723 (2)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card Lakers">
-      <img
-        src="../../../../../assets/images/players/Miller_Mike.png"
-        class="card-img-top"
-        alt="..."
-      />
-      <div class="card-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <img src="../../../../../assets/images/utils/b.png" />
-            <img src="../../../../../assets/images/utils/a.png" />
-            SF - Mike Miller
-          </li>
-          <li class="list-group-item">6'8", 218 lbs, 21 years</li>
-          <li class="list-group-item">25.9 PPG - 13.0 APG - 15.2 RPG</li>
-          <li class="list-group-item">$6,902,723 (2)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card Lakers">
-      <img
-        src="../../../../../assets/images/players/Miller_Mike.png"
-        class="card-img-top"
-        alt="..."
-      />
-      <div class="card-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <img src="../../../../../assets/images/utils/b.png" />
-            <img src="../../../../../assets/images/utils/a.png" />
-            SF - Mike Miller
-          </li>
-          <li class="list-group-item">6'8", 218 lbs, 21 years</li>
-          <li class="list-group-item">25.9 PPG - 13.0 APG - 15.2 RPG</li>
-          <li class="list-group-item">$6,902,723 (2)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card Lakers">
-      <img
-        src="../../../../../assets/images/players/Miller_Mike.png"
-        class="card-img-top"
-        alt="..."
-      />
-      <div class="card-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <img src="../../../../../assets/images/utils/b.png" />
-            <img src="../../../../../assets/images/utils/a.png" />
-            SF - Mike Miller
-          </li>
-          <li class="list-group-item">6'8", 218 lbs, 21 years</li>
-          <li class="list-group-item">25.9 PPG - 13.0 APG - 15.2 RPG</li>
-          <li class="list-group-item">$6,902,723 (2)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card Lakers">
-      <img
-        src="../../../../../assets/images/players/Miller_Mike.png"
-        class="card-img-top"
-        alt="..."
-      />
-      <div class="card-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <img src="../../../../../assets/images/utils/b.png" />
-            <img src="../../../../../assets/images/utils/a.png" />
-            SF - Mike Miller
-          </li>
-          <li class="list-group-item">6'8", 218 lbs, 21 years</li>
-          <li class="list-group-item">25.9 PPG - 13.0 APG - 15.2 RPG</li>
-          <li class="list-group-item">$6,902,723 (2)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card Lakers">
-      <img
-        src="../../../../../assets/images/players/Miller_Mike.png"
-        class="card-img-top"
-        alt="..."
-      />
-      <div class="card-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <img src="../../../../../assets/images/utils/b.png" />
-            <img src="../../../../../assets/images/utils/a.png" />
-            SF - Mike Miller
-          </li>
-          <li class="list-group-item">6'8", 218 lbs, 21 years</li>
-          <li class="list-group-item">25.9 PPG - 13.0 APG - 15.2 RPG</li>
-          <li class="list-group-item">$6,902,723 (2)</li>
-        </ul>
-      </div>
+  <div
+    class="card {{ teamColors(team.name) }}"
+    *ngFor="let player of team.players"
+  >
+    <img
+      [src]="playerImg + [player.lastname] + '_' + [player.firstname] + [png]"
+      onerror="this.src='../../../../../assets/images/players/blank.png';"
+      alt="player img"
+      class="card-img"
+    />
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <img [src]="ratingColors(player.currentrating)" />
+          <img [src]="ratingColors(player.futurerating)" />
+          {{ getPosition(player.positionnumber) }} - {{ player.firstname }}
+          {{ player.lastname }}
+        </li>
+        <li class="list-group-item">6'8", 218 lbs, 21 years</li>
+        <li class="list-group-item">25.9 PPG - 13.0 APG - 15.2 RPG</li>
+        <li class="list-group-item">$6,902,723 (2)</li>
+      </ul>
     </div>
   </div>
 </div>

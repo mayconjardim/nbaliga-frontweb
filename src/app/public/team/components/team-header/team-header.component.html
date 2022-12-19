@@ -1,32 +1,36 @@
-<div class="card Lakers">
+<div class="card  {{ teamColors(team.name) }}">
   <div class="card-body">
     <div class="card-body-logo">
       <img [src]="teamLogo + [team.name] + [svg]" alt="team logo" />
     </div>
     <div class="card-body-name">
       <h5>{{ team.cityName }} {{ team.name }}</h5>
-      <span>34-16 | 12th in Western</span>
+      <span
+        >{{ team.homeWins + team.roadWins }} -
+        {{ team.roadLosses + team.roadLosses }} | {{ team.confRank }}th in
+        {{ team.conference }} Conf.
+      </span>
     </div>
   </div>
   <div class="card-stats">
     <ul class="list-group list-group-horizontal">
       <li class="list-group-item ppg">
-        <span>113.5</span>
+        <span>{{ team.ppg | number : "1.1-1" }}</span>
         <p>11th</p>
         <span>PPG</span>
       </li>
       <li class="list-group-item oppg">
-        <span>113.5</span>
+        <span>{{ team.oppg | number : "1.1-1" }}</span>
         <p>11th</p>
         <span>OPPG</span>
       </li>
       <li class="list-group-item asp">
-        <span>113.5</span>
+        <span>{{ team.apg | number : "1.1-1" }}</span>
         <p>11th</p>
         <span>APG</span>
       </li>
       <li class="list-group-item rpg">
-        <span>113.5</span>
+        <span>{{ team.rpg | number : "1.1-1" }}</span>
         <p>11th</p>
         <span>RPG</span>
       </li>
@@ -35,8 +39,12 @@
         <p>L1</p>
       </li>
       <li class="list-group-item desk">
-        <p>HOME <span>16 - 25</span></p>
-        <p>ROAD <span>16 - 25</span></p>
+        <p>
+          HOME <span>{{ team.homeWins }} - {{ team.homeLosses }}</span>
+        </p>
+        <p>
+          ROAD <span>{{ team.roadWins }} - {{ team.roadLosses }}</span>
+        </p>
         <p>LAST 10 <span>16 - 25</span></p>
       </li>
     </ul>
