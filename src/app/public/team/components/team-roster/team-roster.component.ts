@@ -13,30 +13,34 @@ export class TeamRosterComponent {
   png = '.png';
 
   ratingColors(rating: string) {
-    if (rating == 'A+') {
-      return 'assets/images/utils/aa.png';
-    } else if (rating == 'A') {
-      return 'assets/images/utils/a.png';
-    } else if (rating == 'B') {
-      return 'assets/images/utils/b.png';
-    } else if (rating == 'C') {
-      return 'assets/images/utils/c.png';
-    } else {
-      return 'assets/image/utils/f.png';
+    switch (rating) {
+      case 'A+':
+        return 'assets/images/utils/aa.png';
+      case 'A':
+        return 'assets/images/utils/a.png';
+      case 'B':
+        return 'assets/images/utils/b.png';
+      case 'C':
+        return 'assets/images/utils/c.png';
+      case 'D':
+        return 'assets/images/utils/d.png';
+      default:
+        return 'assets/images/utils/f.png';
     }
   }
 
   getPosition(position: number) {
-    if (position == 5) {
-      return 'PG';
-    } else if (position == 4) {
-      return 'SG';
-    } else if (position == 3) {
-      return 'SF';
-    } else if (position == 2) {
-      return 'PF';
-    } else {
-      return 'C';
+    switch (position) {
+      case 5:
+        return 'PG';
+      case 4:
+        return 'SG';
+      case 3:
+        return 'SF';
+      case 2:
+        return 'PF';
+      default:
+        return 'C';
     }
   }
 
@@ -45,5 +49,11 @@ export class TeamRosterComponent {
       return 'Sixers';
     }
     return team;
+  }
+
+  getHeight(height: any) {
+    const ft = Math.floor(height / 12);
+    const inc = height % 12;
+    return ft + "'" + inc;
   }
 }

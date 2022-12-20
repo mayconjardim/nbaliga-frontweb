@@ -1,5 +1,6 @@
 <div class="container">
   <div
+    routerLink="player/{{ player.id }}"
     class="card {{ teamColors(team.name) }}"
     *ngFor="let player of team.players"
   >
@@ -17,9 +18,14 @@
           {{ getPosition(player.positionnumber) }} - {{ player.firstname }}
           {{ player.lastname }}
         </li>
-        <li class="list-group-item">6'8", 218 lbs, 21 years</li>
+        <li class="list-group-item">
+          {{ getHeight(player.height) }} / {{ player.weight }} lbs.
+          {{ player.age }} years old
+        </li>
         <li class="list-group-item">25.9 PPG - 13.0 APG - 15.2 RPG</li>
-        <li class="list-group-item">$6,902,723 (2)</li>
+        <li class="list-group-item">
+          $ {{ player.contract1 | number }} ({{ player.contractLength }})
+        </li>
       </ul>
     </div>
   </div>

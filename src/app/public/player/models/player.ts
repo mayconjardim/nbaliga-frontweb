@@ -82,4 +82,5 @@ export interface Player {
   optiontype7: number;
   optiontype8: number;
   birdyears: number;
+  contractLength: number;
 }

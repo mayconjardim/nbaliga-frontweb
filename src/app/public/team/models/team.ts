@@ -71,5 +71,6 @@ export interface Team {
   oppg: number;
   rpg: number;
   apg: number;
+  strk: string;
   players?: Player[];
 }
