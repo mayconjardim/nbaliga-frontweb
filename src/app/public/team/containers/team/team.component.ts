@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Team } from '../../models/team';
 import { TeamService } from '../../services/team.service';
-import { Player } from 'src/app/public/player/models/player';
 
 @Component({
   selector: 'team',
@@ -12,7 +11,6 @@ import { Player } from 'src/app/public/player/models/player';
 })
 export class TeamComponent implements OnInit {
   team!: Team;
-
   constructor(private route: ActivatedRoute, private service: TeamService) {}
 
   ngOnInit(): void {
@@ -21,6 +19,4 @@ export class TeamComponent implements OnInit {
       this.team = response;
     });
   }
-
-  findById(): void {}
 }
