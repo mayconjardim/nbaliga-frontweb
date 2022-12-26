@@ -1,96 +1,79 @@
-<div class="container">
-  <table class="table table-dark table-striped table-hover">
-    <thead>
-      <tr>
-        <th scope="col" class="row-lg">PLAYER</th>
-        <th scope="col" class="row-sm">POS</th>
-        <th scope="col" class="row-sm">CUR</th>
-        <th scope="col" class="row-sm">POT</th>
-        <th scope="col" class="row-sm">AGE</th>
-        <th scope="col" class="row-lg">Contract1</th>
-        <th scope="col" class="row-lg">Contract2</th>
-        <th scope="col" class="row-lg">Contract3</th>
-        <th scope="col" class="row-lg">Contract4</th>
-        <th scope="col" class="row-lg">Contract5</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let player of team.players!">
-        <td>
-          <img
-            [src]="
-              playerImg + [player.lastname] + '_' + [player.firstname] + [png]
-            "
-            onerror="this.src='../../../../../assets/images/players/blank.png';"
-            alt="player img"
-            class="player-img {{ teamColors(team.name) }}"
-          />
-          {{ player.name }}
-        </td>
-        <td>{{ getPosition(player.positionnumber) }}</td>
-        <td><img [src]="ratingColors(player.currentrating)" /></td>
-        <td><img [src]="ratingColors(player.futurerating)" /></td>
-        <td>{{ player.age }}</td>
-        <td>{{ player.contract1 | currency : "USD" : "symbol" : "1.0" }}</td>
-        <td>{{ player.contract2 | currency : "USD" : "symbol" : "1.0" }}</td>
-        <td>{{ player.contract3 | currency : "USD" : "symbol" : "1.0" }}</td>
-        <td>{{ player.contract4 | currency : "USD" : "symbol" : "1.0" }}</td>
-        <td>{{ player.contract5 | currency : "USD" : "symbol" : "1.0" }}</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td>Totals:</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td
-          [ngStyle]="{
-            color: getCapSpace(getTotalSalary(1)) < 0 ? 'red' : 'green'
-          }"
-        >
-          {{
-            getCapSpace(getTotalSalary(1)) | currency : "USD" : "symbol" : "1.0"
-          }}
-        </td>
-        <td
-          [ngStyle]="{
-            color: getCapSpace(getTotalSalary(2)) < 0 ? 'red' : 'green'
-          }"
-        >
-          {{
-            getCapSpace(getTotalSalary(2)) | currency : "USD" : "symbol" : "1.0"
-          }}
-        </td>
-        <td
-          [ngStyle]="{
-            color: getCapSpace(getTotalSalary(3)) < 0 ? 'red' : 'green'
-          }"
-        >
-          {{
-            getCapSpace(getTotalSalary(3)) | currency : "USD" : "symbol" : "1.0"
-          }}
-        </td>
-        <td
-          [ngStyle]="{
-            color: getCapSpace(getTotalSalary(4)) < 0 ? 'red' : 'green'
-          }"
-        >
-          {{
-            getCapSpace(getTotalSalary(4)) | currency : "USD" : "symbol" : "1.0"
-          }}
-        </td>
-        <td
-          [ngStyle]="{
-            color: getCapSpace(getTotalSalary(5)) < 0 ? 'red' : 'green'
-          }"
-        >
-          {{
-            getCapSpace(getTotalSalary(5)) | currency : "USD" : "symbol" : "1.0"
-          }}
-        </td>
-      </tr>
-    </tfoot>
-  </table>
+<div class="contracts-container">
+  <div class="contracts-container-section table-responsive">
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">PLAYER</th>
+          <th scope="col">POS</th>
+          <th scope="col">CUR</th>
+          <th scope="col">POT</th>
+          <th scope="col">AGE</th>
+          <th scope="col">2001</th>
+          <th scope="col">2002</th>
+          <th scope="col">2003</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of team.players!">
+          <td>
+            <img
+              [src]="
+                playerImg + [player.lastname] + '_' + [player.firstname] + [png]
+              "
+              onerror="this.src='../../../../../assets/images/players/blank.png';"
+              alt="player img"
+              class="player-img {{ teamColors(team.name) }}"
+            />
+            {{ player.name }}
+          </td>
+          <td>{{ getPosition(player.positionnumber) }}</td>
+          <td><img [src]="ratingColors(player.currentrating)" /></td>
+          <td><img [src]="ratingColors(player.futurerating)" /></td>
+          <td>{{ player.age }}</td>
+          <td>{{ player.contract1 | currency : "USD" : "symbol" : "1.0" }}</td>
+          <td>{{ player.contract2 | currency : "USD" : "symbol" : "1.0" }}</td>
+          <td>{{ player.contract3 | currency : "USD" : "symbol" : "1.0" }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Totals:</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td
+            [ngStyle]="{
+              color: getCapSpace(getTotalSalary(1)) < 0 ? 'red' : 'green'
+            }"
+          >
+            {{
+              getCapSpace(getTotalSalary(1))
+                | currency : "USD" : "symbol" : "1.0"
+            }}
+          </td>
+          <td
+            [ngStyle]="{
+              color: getCapSpace(getTotalSalary(2)) < 0 ? 'red' : 'green'
+            }"
+          >
+            {{
+              getCapSpace(getTotalSalary(2))
+                | currency : "USD" : "symbol" : "1.0"
+            }}
+          </td>
+          <td
+            [ngStyle]="{
+              color: getCapSpace(getTotalSalary(3)) < 0 ? 'red' : 'green'
+            }"
+          >
+            {{
+              getCapSpace(getTotalSalary(3))
+                | currency : "USD" : "symbol" : "1.0"
+            }}
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
 </div>

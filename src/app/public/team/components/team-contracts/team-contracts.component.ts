@@ -61,12 +61,7 @@ export class TeamContractsComponent {
       case 3:
         total = this.team.players?.reduce((acc, cur) => acc + cur.contract3, 0);
         break;
-      case 4:
-        total = this.team.players?.reduce((acc, cur) => acc + cur.contract4, 0);
-        break;
-      case 5:
-        total = this.team.players?.reduce((acc, cur) => acc + cur.contract5, 0);
-        break;
+
       default:
         total = 0;
         break;

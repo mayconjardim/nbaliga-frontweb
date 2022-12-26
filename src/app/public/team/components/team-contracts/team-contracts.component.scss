@@ -1,55 +1,68 @@
 @import "../../../../../assets/scss/variables.scss";
 @import "../../../../../assets/scss/teamsColors.scss";
 
-.container {
-  .table {
-    table-layout: fixed;
-    width: 100%;
-    margin-top: 10px;
-    font-size: 10px;
-    white-space: nowrap;
+.contracts-container {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  justify-content: center;
 
-    thead th:first-child {
-      position: sticky;
-      left: 0;
-      z-index: 2;
-      padding-right: 100px;
-    }
+  &-section {
+    width: 97%;
 
-    tbody {
-      td:first-child {
+    .table {
+      width: 100%;
+      margin-top: 10px;
+      font-size: 10px;
+      white-space: nowrap;
+
+      thead th:first-child {
         position: sticky;
         left: 0;
-        z-index: 1;
+        z-index: 2;
+      }
+      th {
+        text-align: center;
+        vertical-align: middle;
       }
 
-      td {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+      tbody {
+        td:first-child {
+          position: sticky;
+          text-align: left;
+          left: 0;
+          z-index: 1;
+        }
+
+        td {
+          text-align: center;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        .player-img {
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 30px;
+          border-radius: 20%;
+          margin-right: 30px;
+        }
       }
 
-      .player-img {
-        width: 30px;
-        border-radius: 20%;
-        margin-right: 25px;
+      tfoot {
+        td:first-child {
+          position: sticky;
+          text-align: left;
+          left: 0;
+          z-index: 1;
+        }
+
+        td {
+          text-align: center;
+        }
       }
-    }
-
-    tfoot {
-      td:first-child {
-        position: sticky;
-        left: 0;
-        z-index: 1;
-      }
-    }
-
-    .row-lg {
-      width: 40%;
-    }
-
-    .row-sm {
-      width: 10%;
     }
   }
 }
