@@ -1,0 +1,35 @@
+.player-grid {
+  display: grid;
+  margin: 5px;
+
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  gap: 0px;
+  height: 150px;
+}
+
+#player-grid-header {
+  grid-row-start: 1;
+  grid-column-start: 1;
+
+  grid-row-end: 2;
+  grid-column-end: 6;
+}
+#player-grid-ratings {
+  grid-row-start: 2;
+  grid-column-start: 1;
+
+  grid-row-end: 3;
+  grid-column-end: 6;
+}
+#player-grid-stats {
+  grid-row-start: 3;
+  grid-column-start: 1;
+
+  grid-row-end: 6;
+  grid-column-end: 6;
+}
+
+@media only screen and (max-width: 600px) {
+}

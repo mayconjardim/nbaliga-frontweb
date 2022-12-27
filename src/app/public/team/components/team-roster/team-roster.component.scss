@@ -7,8 +7,8 @@
   flex-wrap: wrap;
 
   .card {
-    margin: 10px;
-    width: 180px;
+    margin: 5px;
+    width: 185px;
     border-radius: 4px;
     background-repeat: no-repeat;
     background-position: top;
@@ -26,6 +26,7 @@
       background-color: $primary-color;
 
       .list-group-item {
+        width: 185px;
         margin: 0;
         padding: 0;
         background: transparent;

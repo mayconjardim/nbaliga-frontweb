@@ -1,1 +1,9 @@
-<p>player works!</p>
+<div class="player-grid">
+  <div id="player-grid-header">
+    <ng-container *ngIf="!!player">
+      <player-header [player]="player"></player-header>
+    </ng-container>
+  </div>
+  <div id="player-grid-ratings">&nbsp;</div>
+  <div id="player-grid-stats">&nbsp;</div>
+</div>

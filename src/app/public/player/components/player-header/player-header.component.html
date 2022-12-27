@@ -1,1 +1,52 @@
-<p>player-header works!</p>
+<div class="card  {{ teamColors(player.currentteam) }}">
+  <div class="card-body">
+    <div class="card-body-img">
+      <img
+        [src]="playerImg + [player.lastname] + '_' + [player.firstname] + [png]"
+        onerror="this.src='../../../../../assets/images/players/blank.png';"
+        alt="player img"
+      />
+    </div>
+    <div class="card-body-name">
+      <h5>{{ player.name }}</h5>
+      <span>
+        <img [src]="ratingColors(player.currentrating)" />
+        <img [src]="ratingColors(player.futurerating)" />
+        {{ player.currentteam }} |
+        {{ getPosition(player.positionnumber) }}
+      </span>
+      <p>
+        {{ getHeight(player.height) }} / {{ player.weight }} lbs.
+        {{ player.age }} years old
+      </p>
+    </div>
+  </div>
+  <div class="card-stats">
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item ppg">
+        <p>22.7</p>
+        <span>PPG</span>
+      </li>
+      <li class="list-group-item rpg">
+        <p>4.7</p>
+        <span>RPG</span>
+      </li>
+      <li class="list-group-item asp">
+        <p>3.5</p>
+        <span>APG</span>
+      </li>
+      <li class="list-group-item per">
+        <p>15.2</p>
+        <span>PER</span>
+      </li>
+      <li class="list-group-item desk">
+        <p>
+          Contract: $ {{ player.contract1 | number }} ({{
+            player.contractLength
+          }})
+        </p>
+        <p>Experience: {{ getExperience(player.experience) }}</p>
+      </li>
+    </ul>
+  </div>
+</div>
