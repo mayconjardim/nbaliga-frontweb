@@ -1,1 +1,41 @@
-<div class="container"></div>
+<div class="container">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">INFO</th>
+        <th scope="col">AWAY</th>
+        <th scope="col">HOME</th>
+        <th scope="col">RESULT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of schedule">
+        <td>{{ getGameType(game.day) }}</td>
+        <td>
+          <mat-icon
+            ><img [src]="teamLogo + [game.away] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ game.away }}
+        </td>
+        <td>
+          <mat-icon
+            ><img [src]="teamLogo + [game.home] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ game.home }}
+        </td>
+        <td
+          [ngStyle]="{
+            color:
+              getWinner(game.away, game.home, game.awayScore, game.homeScore) ==
+              'L '
+                ? 'red'
+                : 'green'
+          }"
+        >
+          {{ getWinner(game.away, game.home, game.awayScore, game.homeScore) }}
+          {{ game.awayScore }} - {{ game.homeScore }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
