@@ -1,6 +1,6 @@
 import { Schedule } from './../../../schedule/models/schedule';
 import { ScheduleService } from './../../../schedule/services/schedule.service';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Team } from '../../models/team';
@@ -18,20 +18,26 @@ export class TeamComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: TeamService,
-    private ScheduleService: ScheduleService
+    private scheduleService: ScheduleService
   ) {}
 
   ngOnInit(): void {
+    this.getTeam();
+  }
+
+  getTeam() {
     const id = this.route.snapshot.paramMap.get('id');
     this.service.findById(id).subscribe((response) => {
       this.team = response;
+      this.getTeamSchedule();
     });
-    this.teamSchedule();
   }
 
-  teamSchedule() {
-    this.ScheduleService.findByTeam(this.team.name).subscribe((response) => {
-      this.schedule = response;
-    });
+  getTeamSchedule() {
+    if (this.team.name != null) {
+      this.scheduleService.findByTeam(this.team.name).subscribe((response) => {
+        this.schedule = response;
+      });
+    }
   }
 }

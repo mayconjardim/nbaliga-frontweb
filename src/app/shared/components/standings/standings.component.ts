@@ -30,11 +30,15 @@ export class StandingsComponent {
   }
 
   leading(numero: any) {
-    let num = numero;
-    let text = num.toString();
-    text = text.replace(/^[0]+/, '');
-    text = text.slice(0, +4);
-    return text;
+    if (numero > 0) {
+      let num = numero;
+      let text = num.toString();
+      text = text.replace(/^[0]+/, '');
+      text = text.slice(0, +4);
+      return text;
+    } else {
+      return '-';
+    }
   }
 
   teamsEast() {
