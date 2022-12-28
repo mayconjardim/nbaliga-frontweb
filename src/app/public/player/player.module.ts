@@ -6,6 +6,7 @@ import { PlayerHeaderComponent } from './components/player-header/player-header.
 import { PlayerComponent } from './containers/player/player.component';
 import { PlayerRatingsComponent } from './components/player-ratings/player-ratings.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { PlayerStatsComponent } from './components/player-stats/player-stats.component';
 
 export const routes: Routes = [{ path: '', component: PlayerComponent }];
 
@@ -14,6 +15,7 @@ export const routes: Routes = [{ path: '', component: PlayerComponent }];
     PlayerComponent,
     PlayerHeaderComponent,
     PlayerRatingsComponent,
+    PlayerStatsComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(routes), MatProgressBarModule],
 })

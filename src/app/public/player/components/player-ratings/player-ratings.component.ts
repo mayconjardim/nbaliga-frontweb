@@ -8,24 +8,4 @@ import { Player } from '../../models/player';
 })
 export class PlayerRatingsComponent {
   @Input() player!: Player;
-
-  getRatingColor(rating: number) {
-    if (rating <= 39) {
-      return 'red';
-    } else if (rating >= 40 && rating <= 49) {
-      return 'orange';
-    } else if (rating >= 50 && rating <= 59) {
-      return 'yellow';
-    } else if (rating >= 60 && rating <= 79) {
-      return 'green';
-    } else if (rating >= 80 && rating <= 99) {
-      return 'blue';
-    } else {
-      return 'purple';
-    }
-  }
-
-  styleObject(rating: any) {
-    return { width: rating + '%', background: this.getRatingColor(rating) };
-  }
 }
