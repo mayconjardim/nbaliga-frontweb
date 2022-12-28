@@ -9,6 +9,9 @@ import { Player } from '../../models/player';
 export class PlayerStatsComponent {
   @Input() player!: Player;
 
+  teamLogo = 'assets/images/logos/';
+  svg = '.svg';
+
   removeLeading0(numero: any) {
     if (numero > 0) {
       let num = numero;
@@ -21,5 +24,10 @@ export class PlayerStatsComponent {
     }
   }
 
-  stats(stat: number) {}
+  getSeason(season: any) {
+    let seasons = season + 1;
+    seasons = seasons.toString();
+    seasons = seasons.substring(2);
+    return season + '-' + seasons;
+  }
 }

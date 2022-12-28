@@ -48,6 +48,13 @@
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
+
+          .mat-icon {
+            img {
+              width: 20px;
+              vertical-align: text-bottom;
+            }
+          }
         }
       }
     }
