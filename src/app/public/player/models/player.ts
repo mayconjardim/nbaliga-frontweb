@@ -84,4 +84,5 @@ export interface Player {
   birdyears: number;
   contractLength: number;
   seasonStats: any[];
+  playoffStats: any[];
 }

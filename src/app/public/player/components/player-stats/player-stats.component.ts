@@ -18,9 +18,12 @@ export class PlayerStatsComponent {
       let text = num.toString();
       text = text.replace(/^[0]+/, '');
       text = text.slice(0, +4);
+      if (text == 0) {
+        text = '.000';
+      }
       return text;
     } else {
-      return '';
+      return '.000';
     }
   }
 
