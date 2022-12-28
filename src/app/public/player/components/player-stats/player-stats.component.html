@@ -1,1 +1,75 @@
-<p>player-stats works!</p>
+<div class="stats-container">
+  <div class="stats-container-title">
+    <span class="badge text-bg-dark">Regular Season Averages</span>
+    <div class="stats-container-section table-responsive">
+      <table class="table table-dark table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">SEASON</th>
+            <th scope="col">TEAM</th>
+            <th scope="col">G</th>
+            <th scope="col">GS</th>
+            <th scope="col">MIN</th>
+
+            <th scope="col">PTS</th>
+            <th scope="col">REB</th>
+            <th scope="col">AST</th>
+            <th scope="col">STL</th>
+
+            <th scope="col">BLK</th>
+            <th scope="col">PF</th>
+            <th scope="col">TO</th>
+
+            <th scope="col">FGM-FGA</th>
+            <th scope="col">FG%</th>
+
+            <th scope="col">3PM-3PA</th>
+            <th scope="col">3P%</th>
+
+            <th scope="col">FTM-FTA</th>
+            <th scope="col">FT%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stats of player.seasonStats">
+            <td>{{ stats.season }}</td>
+            <td>{{ stats.team }}</td>
+            <td>{{ stats.games }}</td>
+            <td>{{ stats.gamesStarted }}</td>
+            <td>{{ stats.mpg | number : "1.1-1" }}</td>
+
+            <td>{{ stats.ppg | number : "1.1-1" }}</td>
+            <td>{{ stats.rpg | number : "1.1-1" }}</td>
+            <td>{{ stats.apg | number : "1.1-1" }}</td>
+            <td>{{ stats.spg | number : "1.1-1" }}</td>
+
+            <td>{{ stats.bpg | number : "1.1-1" }}</td>
+            <td>{{ stats.fouls_ | number : "1.1-1" }}</td>
+            <td>{{ stats.tpg | number : "1.1-1" }}</td>
+
+            <td>
+              {{ stats.fgm_ | number : "1.1-1" }}-{{
+                stats.fga_ | number : "1.1-1"
+              }}
+            </td>
+            <td>{{ removeLeading0(stats.fg_) }}</td>
+
+            <td>
+              {{ stats._3pm_ | number : "1.1-1" }}-{{
+                stats._3pm_ | number : "1.1-1"
+              }}
+            </td>
+
+            <td>{{ removeLeading0(stats._3p_) }}</td>
+            <td>
+              {{ stats.ftm_ | number : "1.1-1" }}-{{
+                stats.fta_ | number : "1.1-1"
+              }}
+            </td>
+            <td>{{ removeLeading0(stats.fg_) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

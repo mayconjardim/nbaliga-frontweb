@@ -9,5 +9,9 @@
       <player-ratings [player]="player"></player-ratings>
     </ng-container>
   </div>
-  <div id="player-grid-stats">&nbsp;</div>
+  <div id="player-grid-stats">
+    <ng-container *ngIf="!!player">
+      <player-stats [player]="player"></player-stats>
+    </ng-container>
+  </div>
 </div>

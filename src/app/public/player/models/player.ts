@@ -83,4 +83,5 @@ export interface Player {
   optiontype8: number;
   birdyears: number;
   contractLength: number;
+  seasonStats: any[];
 }
