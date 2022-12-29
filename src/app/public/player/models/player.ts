@@ -1,3 +1,6 @@
+import { PlayoffStats } from 'src/app/shared/models/playoffStats';
+import { SeasonStats } from 'src/app/shared/models/seasonStats';
+
 export interface Player {
   id: any;
   firstname: string;
@@ -83,6 +86,6 @@ export interface Player {
   optiontype8: number;
   birdyears: number;
   contractLength: number;
-  seasonStats: any[];
-  playoffStats: any[];
+  seasonStats: SeasonStats[];
+  playoffStats: PlayoffStats[];
 }
