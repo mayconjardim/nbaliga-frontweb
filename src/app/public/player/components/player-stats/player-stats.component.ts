@@ -11,6 +11,7 @@ export class PlayerStatsComponent {
 
   teamLogo = 'assets/images/logos/';
   svg = '.svg';
+  composer: any;
 
   removeLeading0(numero: any) {
     if (numero > 0) {
