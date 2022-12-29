@@ -40,6 +40,11 @@
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
+
+          a {
+            text-decoration: none;
+            color: $secondary-color;
+          }
         }
 
         .player-img {

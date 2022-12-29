@@ -21,7 +21,11 @@
           ><team-schedule [team]="team" [schedule]="schedule"></team-schedule>
         </ng-container>
       </mat-tab>
-      <mat-tab label="Statistics">Content 4</mat-tab>
+      <mat-tab label="Draft Picks">
+        <ng-container *ngIf="!!team"
+          ><team-draftpicks [team]="team"></team-draftpicks>
+        </ng-container>
+      </mat-tab>
     </mat-tab-group>
   </div>
 </div>

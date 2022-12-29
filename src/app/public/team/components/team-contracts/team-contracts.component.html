@@ -24,7 +24,7 @@
               alt="player img"
               class="player-img {{ teamColors(team.name) }}"
             />
-            {{ player.name }}
+            <a routerLink="/player/{{ player.id }}">{{ player.name }}</a>
           </td>
           <td>{{ getPosition(player.positionnumber) }}</td>
           <td><img [src]="ratingColors(player.currentrating)" /></td>

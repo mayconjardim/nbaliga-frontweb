@@ -25,19 +25,23 @@ export class TeamScheduleComponent {
   }
 
   getWinner(away: string, home: string, awayScore: number, homeScore: number) {
-    if (this.team.name == away) {
-      if (awayScore > homeScore) {
-        return 'W ';
-      } else {
-        return 'L ';
+    if (awayScore == 0) {
+      return '';
+    } else {
+      if (this.team.name == away) {
+        if (awayScore > homeScore) {
+          return 'W ';
+        } else {
+          return 'L ';
+        }
+      } else if (this.team.name == home) {
+        if (awayScore > homeScore) {
+          return 'L ';
+        } else {
+          return 'W ';
+        }
       }
-    } else if (this.team.name == home) {
-      if (awayScore > homeScore) {
-        return 'L ';
-      } else {
-        return 'W ';
-      }
+      return '-';
     }
-    return '-';
   }
 }
