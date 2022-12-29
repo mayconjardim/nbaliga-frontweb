@@ -8,4 +8,7 @@ import { Team } from '../../models/team';
 })
 export class TeamDraftpicksComponent {
   @Input() team!: Team;
+
+  teamLogo = 'assets/images/logos/';
+  svg = '.svg';
 }

@@ -73,4 +73,5 @@ export interface Team {
   apg: number;
   strk: string;
   players?: Player[];
+  picks: any[];
 }
