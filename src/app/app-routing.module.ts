@@ -17,6 +17,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./public/player/player.module').then((m) => m.PlayerModule),
   },
+  {
+    path: 'statistics',
+    loadChildren: () =>
+      import('./public/statistics/statistics.module').then(
+        (m) => m.StatisticsModule
+      ),
+  },
 
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', redirectTo: 'home' },

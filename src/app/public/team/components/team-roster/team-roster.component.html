@@ -7,6 +7,7 @@
     <img
       [src]="playerImg + [player.lastname] + '_' + [player.firstname] + [png]"
       onerror="this.src='../../../../../assets/images/players/blank.png';"
+      class="player-img"
       alt="player img"
     />
     <div class="card-body">
@@ -21,7 +22,10 @@
           {{ getHeight(player.height) }} / {{ player.weight }} lbs.
           {{ player.age }} years old
         </li>
-        <li class="list-group-item">25.9 PPG - 13.0 APG - 15.2 RPG</li>
+        <li class="list-group-item">
+          {{ player.pointsPerGame | number : "1.1-1" }} PPG - 13.0 APG - 15.2
+          RPG
+        </li>
         <li class="list-group-item">
           $ {{ player.contract1 | number }} ({{ player.contractLength }})
         </li>

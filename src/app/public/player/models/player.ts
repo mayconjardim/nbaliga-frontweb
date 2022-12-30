@@ -85,6 +85,7 @@ export interface Player {
   optiontype7: number;
   optiontype8: number;
   birdyears: number;
+  pointsPerGame: number;
   contractLength: number;
   seasonStats: SeasonStats[];
   playoffStats: PlayoffStats[];
