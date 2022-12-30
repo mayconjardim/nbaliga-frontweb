@@ -13,6 +13,7 @@ import { TeamService } from '../../services/team.service';
 })
 export class TeamComponent implements OnInit {
   team!: Team;
+  teams!: Team[];
   schedule!: Schedule[];
 
   constructor(
@@ -23,6 +24,7 @@ export class TeamComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTeam();
+    this.findAll();
   }
 
   getTeam() {
@@ -30,6 +32,12 @@ export class TeamComponent implements OnInit {
     this.service.findById(id).subscribe((response) => {
       this.team = response;
       this.getTeamSchedule();
+    });
+  }
+
+  findAll() {
+    this.service.findAll().subscribe((response) => {
+      this.teams = response;
     });
   }
 

@@ -24,19 +24,19 @@
   <div class="card-stats">
     <ul class="list-group list-group-horizontal">
       <li class="list-group-item ppg">
-        <p>22.7</p>
+        <p>{{ getPpg() | number : "1.1-1" }}</p>
         <span>PPG</span>
       </li>
       <li class="list-group-item rpg">
-        <p>4.7</p>
+        <p>{{ getRpg() | number : "1.1-1" }}</p>
         <span>RPG</span>
       </li>
       <li class="list-group-item asp">
-        <p>3.5</p>
+        <p>{{ getApg() | number : "1.1-1" }}</p>
         <span>APG</span>
       </li>
       <li class="list-group-item per">
-        <p>15.2</p>
+        <p>{{ getPer() | number : "1.1-1" }}</p>
         <span>PER</span>
       </li>
       <li class="list-group-item desk">

@@ -1,6 +1,7 @@
 import { Player } from './../../player/models/player';
 
 export interface Team {
+  [index: string]: any;
   id?: any;
   league: number;
   cityName: string;

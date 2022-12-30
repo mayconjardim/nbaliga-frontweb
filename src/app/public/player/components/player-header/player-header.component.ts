@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { Player } from '../../models/player';
+import { SeasonStats } from 'src/app/shared/models/seasonStats';
 
 @Component({
   selector: 'player-header',
@@ -9,6 +10,7 @@ import { Player } from '../../models/player';
 })
 export class PlayerHeaderComponent {
   @Input() player!: Player;
+  @Input() playerSeasonStats!: SeasonStats;
 
   playerImg = 'assets/images/players/';
   png = '.png';
@@ -65,6 +67,38 @@ export class PlayerHeaderComponent {
       return years + ' year';
     } else {
       return years + ' years';
+    }
+  }
+
+  getPpg(): number {
+    if (this.player.seasonStats.length > 0) {
+      return this.playerSeasonStats.ppg;
+    } else {
+      return 0.0;
+    }
+  }
+
+  getRpg(): number {
+    if (this.player.seasonStats.length > 0) {
+      return this.playerSeasonStats.rpg;
+    } else {
+      return 0.0;
+    }
+  }
+
+  getApg(): number {
+    if (this.player.seasonStats.length > 0) {
+      return this.playerSeasonStats.apg;
+    } else {
+      return 0.0;
+    }
+  }
+
+  getPer(): number {
+    if (this.player.seasonStats.length > 0) {
+      return this.playerSeasonStats.per;
+    } else {
+      return 0.0;
     }
   }
 }

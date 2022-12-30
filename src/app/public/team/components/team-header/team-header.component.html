@@ -16,22 +16,22 @@
     <ul class="list-group list-group-horizontal">
       <li class="list-group-item ppg">
         <span>{{ team.ppg | number : "1.1-1" }}</span>
-        <p>11th</p>
+        <p>{{ findPosition("ppg") }}</p>
         <span>PPG</span>
       </li>
       <li class="list-group-item oppg">
         <span>{{ team.oppg | number : "1.1-1" }}</span>
-        <p>11th</p>
+        <p>{{ findPosition("oppg") }}</p>
         <span>OPPG</span>
       </li>
       <li class="list-group-item asp">
         <span>{{ team.apg | number : "1.1-1" }}</span>
-        <p>11th</p>
+        <p>{{ findPosition("apg") }}</p>
         <span>APG</span>
       </li>
       <li class="list-group-item rpg">
         <span>{{ team.rpg | number : "1.1-1" }}</span>
-        <p>11th</p>
+        <p>{{ findPosition("rpg") }}</p>
         <span>RPG</span>
       </li>
       <li class="list-group-item strk">

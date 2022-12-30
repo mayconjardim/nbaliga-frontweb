@@ -41,4 +41,5 @@ export interface SeasonStats {
   _3pm_: number;
   fga_: number;
   fgm_: number;
+  per: number;
 }
