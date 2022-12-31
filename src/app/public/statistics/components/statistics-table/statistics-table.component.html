@@ -1,36 +1,176 @@
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col" [class.active]="order === 'id'" (click)="setOrder('id')">
-        <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-        ID
-      </th>
-      <th scope="col">Name</th>
-      <th
-        scope="col"
-        [class.active]="order === 'team'"
-        (click)="setOrder('team')"
-      >
-        <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-        Team
-      </th>
-      <th
-        scope="col"
-        [class.active]="order === 'ppg'"
-        (click)="setOrder('ppg')"
-      >
-        <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span> PPG
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr
-      *ngFor="let item of stats | orderBy : order : reverse : caseInsensitive"
-    >
-      <td>{{ item.id }}</td>
-      <td>{{ getPlayerName(item.id) }}</td>
-      <td>{{ item.team }}</td>
-      <td>{{ item.ppg }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container-stats">
+  <div class="container-stats-table table-responsive">
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th scope="col">PLAYER</th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'team'"
+            (click)="setOrder('team')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            Team
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'games'"
+            (click)="setOrder('games')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            GP
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'mpg'"
+            (click)="setOrder('mpg')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            MPG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'ppg'"
+            (click)="setOrder('ppg')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span> PPG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'rpg'"
+            (click)="setOrder('rpg')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            RPG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'apg'"
+            (click)="setOrder('apg')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            APG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'bpg'"
+            (click)="setOrder('bpg')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            BPG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'tpg'"
+            (click)="setOrder('tpg')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            TPG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'fg_'"
+            (click)="setOrder('fg_')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            FG%
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === '_3p_'"
+            (click)="setOrder('_3p_')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            3P%
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'ft_'"
+            (click)="setOrder('ft_')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            FT%
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'offReb_'"
+            (click)="setOrder('offReb_')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            ORB
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'deffReb_'"
+            (click)="setOrder('deffReb_')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            DRB
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'plusMinus_'"
+            (click)="setOrder('plusMinus_')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            +/-
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of stats
+              | orderBy : order : reverse : caseInsensitive
+              | paginate : { itemsPerPage: 50, currentPage: p };
+            let i = index
+          "
+        >
+          <td>{{ i + 1 }}</td>
+          <td>
+            <a routerLink="player/{{ item.id }}">
+              {{ getPlayerName(item.id) }}</a
+            >
+          </td>
+          <td>
+            <mat-icon
+              ><img [src]="teamLogo + [item.team] + '.svg'" alt="team logo"
+            /></mat-icon>
+          </td>
+          <td>{{ item.games }}</td>
+          <td>{{ item.mpg | number : "1.1-1" }}</td>
+          <td>{{ item.ppg | number : "1.1-1" }}</td>
+          <td>{{ item.rpg | number : "1.1-1" }}</td>
+          <td>{{ item.apg | number : "1.1-1" }}</td>
+          <td>{{ item.bpg | number : "1.1-1" }}</td>
+          <td>{{ item.tpg | number : "1.1-1" }}</td>
+          <td>{{ removeLeading0(item.fg_) }}</td>
+          <td>{{ removeLeading0(item._3p_) }}</td>
+          <td>{{ removeLeading0(item.ft_) }}</td>
+          <td>{{ item.offReb_ | number : "1.1-1" }}</td>
+          <td>{{ item.deffReb_ | number : "1.1-1" }}</td>
+          <td>{{ item.plusMinus_ }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="container-stats-pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

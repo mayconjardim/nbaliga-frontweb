@@ -42,4 +42,6 @@ export interface Statistics {
   fta_: number;
   per: number;
   fouls_: number;
+  offReb_: number;
+  deffReb_: number;
 }

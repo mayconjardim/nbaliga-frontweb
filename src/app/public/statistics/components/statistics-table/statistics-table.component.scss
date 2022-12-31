@@ -1,17 +1,71 @@
-thead th {
-  cursor: pointer;
-  margin-right: 15px;
-  margin-left: 15px;
+@import "../../../../../assets/scss/variables.scss";
+@import "../../../../../assets/scss/teamsColors.scss";
 
-  span {
-    visibility: hidden;
-  }
+.container-stats {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 
-  &.active {
-    color: red;
+  &-table {
+    width: 100%;
 
-    span {
-      visibility: visible;
+    .table {
+      width: 100%;
+      margin-top: 10px;
+      font-size: 10px;
+      white-space: nowrap;
+
+      thead th:nth-child(2) {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+      }
+      th {
+        text-align: center;
+        vertical-align: middle;
+
+        span {
+          visibility: hidden;
+        }
+
+        &.active {
+          color: $secondary-color;
+
+          span {
+            visibility: visible;
+          }
+        }
+      }
+
+      tbody {
+        td:nth-child(2) {
+          position: sticky;
+          text-align: left;
+          left: 0;
+          z-index: 1;
+        }
+
+        td {
+          text-align: center;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          a {
+            text-decoration: none;
+            color: $secondary-color;
+          }
+          .mat-icon {
+            vertical-align: text-bottom;
+          }
+
+          img {
+            width: 20px;
+          }
+        }
+      }
     }
   }
+}
+@media only screen and (max-width: 600px) {
 }

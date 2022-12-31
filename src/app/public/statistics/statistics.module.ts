@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, Routes } from '@angular/router';
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
-import { StatisticsComponent } from './container/statistics/statistics.component';
-import { StatisticsTableComponent } from './components/statistics-table/statistics-table.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { OrderModule } from 'ngx-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+import { StatisticsTableComponent } from './components/statistics-table/statistics-table.component';
+import { StatisticsComponent } from './container/statistics/statistics.component';
 
 export const routes: Routes = [{ path: '', component: StatisticsComponent }];
 
@@ -15,10 +15,9 @@ export const routes: Routes = [{ path: '', component: StatisticsComponent }];
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
+    NgxPaginationModule,
     OrderModule,
+    MatIconModule,
   ],
 })
 export class StatisticsModule {}

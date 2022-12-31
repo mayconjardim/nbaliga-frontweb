@@ -1,8 +1,8 @@
-import { PlayerBasic } from './../../../player/models/player-basic';
-import { AfterViewInit, Component, Input } from '@angular/core';
-
-import { Statistics } from './../../models/statistics';
+import { Component, Input } from '@angular/core';
 import { OrderPipe } from 'ngx-order-pipe';
+
+import { PlayerBasic } from './../../../player/models/player-basic';
+import { Statistics } from './../../models/statistics';
 
 @Component({
   selector: 'statistics-table',
@@ -13,13 +13,17 @@ export class StatisticsTableComponent {
   @Input() stats!: Statistics[];
   @Input() players!: PlayerBasic[];
 
-  order: string = 'id';
-  reverse: boolean = false;
+  teamLogo = 'assets/images/logos/';
+  svg = '.svg';
+
+  order: string = 'ppg';
+  reverse: boolean = true;
   caseInsensitive: boolean = false;
   sortedCollection: any[];
+  p: number = 1;
 
   constructor(private orderPipe: OrderPipe) {
-    this.sortedCollection = orderPipe.transform(this.stats, 'id');
+    this.sortedCollection = orderPipe.transform(this.stats, 'ppg');
   }
 
   setOrder(value: string) {
@@ -38,5 +42,22 @@ export class StatisticsTableComponent {
       }
     });
     return playerName;
+  }
+
+  removeLeading0(numero: any) {
+    if (numero > 0) {
+      let num = numero;
+      let text = num.toString();
+      text = text.replace(/^[0]+/, '');
+      text = text.slice(0, +4);
+      if (text == 0) {
+        text = '.000';
+      } else if (text == 1) {
+        text = '1.000';
+      }
+      return text;
+    } else {
+      return '.000';
+    }
   }
 }
