@@ -1,3 +1,4 @@
+import { PlayerBasic } from './../../../player/models/player-basic';
 import { AfterViewInit, Component, Input } from '@angular/core';
 
 import { Statistics } from './../../models/statistics';
@@ -10,6 +11,7 @@ import { OrderPipe } from 'ngx-order-pipe';
 })
 export class StatisticsTableComponent {
   @Input() stats!: Statistics[];
+  @Input() players!: PlayerBasic[];
 
   order: string = 'id';
   reverse: boolean = false;
@@ -26,5 +28,15 @@ export class StatisticsTableComponent {
     }
 
     this.order = value;
+  }
+
+  getPlayerName(id: number): string {
+    let playerName = '';
+    this.players.forEach((x) => {
+      if (x.id == id) {
+        playerName = x.name;
+      }
+    });
+    return playerName;
   }
 }

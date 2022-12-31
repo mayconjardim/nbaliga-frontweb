@@ -5,6 +5,7 @@
         <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
         ID
       </th>
+      <th scope="col">Name</th>
       <th
         scope="col"
         [class.active]="order === 'team'"
@@ -13,7 +14,13 @@
         <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
         Team
       </th>
-      <th scope="col">PPG</th>
+      <th
+        scope="col"
+        [class.active]="order === 'ppg'"
+        (click)="setOrder('ppg')"
+      >
+        <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span> PPG
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +28,7 @@
       *ngFor="let item of stats | orderBy : order : reverse : caseInsensitive"
     >
       <td>{{ item.id }}</td>
+      <td>{{ getPlayerName(item.id) }}</td>
       <td>{{ item.team }}</td>
       <td>{{ item.ppg }}</td>
     </tr>
