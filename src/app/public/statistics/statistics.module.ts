@@ -6,6 +6,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { StatisticsComponent } from './container/statistics/statistics.component';
 import { StatisticsTableComponent } from './components/statistics-table/statistics-table.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { OrderModule } from 'ngx-order-pipe';
 
 export const routes: Routes = [{ path: '', component: StatisticsComponent }];
 
@@ -17,6 +18,7 @@ export const routes: Routes = [{ path: '', component: StatisticsComponent }];
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    OrderModule,
   ],
 })
 export class StatisticsModule {}

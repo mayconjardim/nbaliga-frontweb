@@ -1,38 +1,28 @@
-<table
-  mat-table
-  [dataSource]="dataSource"
-  matSort
-  (matSortChange)="announceSortChange($event)"
-  class="mat-elevation-z8"
->
-  <!-- Position Column -->
-  <ng-container matColumnDef="id">
-    <th
-      mat-header-cell
-      *matHeaderCellDef
-      mat-sort-header
-      sortActionDescription="Sort by number"
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col" [class.active]="order === 'id'" (click)="setOrder('id')">
+        <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+        ID
+      </th>
+      <th
+        scope="col"
+        [class.active]="order === 'team'"
+        (click)="setOrder('team')"
+      >
+        <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+        Team
+      </th>
+      <th scope="col">PPG</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let item of stats | orderBy : order : reverse : caseInsensitive"
     >
-      ID.
-    </th>
-    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="team">
-    <th
-      mat-header-cell
-      *matHeaderCellDef
-      mat-sort-header
-      sortActionDescription="Sort by name"
-    >
-      Team
-    </th>
-    <td mat-cell *matCellDef="let element">{{ element.team }}</td>
-  </ng-container>
-
-  <!-- Weight Column -->
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <td>{{ item.id }}</td>
+      <td>{{ item.team }}</td>
+      <td>{{ item.ppg }}</td>
+    </tr>
+  </tbody>
 </table>
