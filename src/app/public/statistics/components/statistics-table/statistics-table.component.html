@@ -6,23 +6,8 @@
           <th>#</th>
           <th scope="col">PLAYER</th>
 
-          <th
-            scope="col"
-            [class.active]="order === 'team'"
-            (click)="setOrder('team')"
-          >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            Team
-          </th>
-
-          <th
-            scope="col"
-            [class.active]="order === 'games'"
-            (click)="setOrder('games')"
-          >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            GP
-          </th>
+          <th>Team</th>
+          <th>GP</th>
 
           <th
             scope="col"
@@ -39,7 +24,7 @@
             (click)="setOrder('ppg')"
           >
             <span [hidden]="reverse">▼</span
-            ><span [hidden]="!reverse">▲</span> PPG
+            ><span [hidden]="!reverse">▲</span>PPG
           </th>
 
           <th
@@ -47,8 +32,8 @@
             [class.active]="order === 'rpg'"
             (click)="setOrder('rpg')"
           >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            RPG
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>RPG
           </th>
 
           <th
@@ -56,8 +41,8 @@
             [class.active]="order === 'apg'"
             (click)="setOrder('apg')"
           >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            APG
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>APG
           </th>
 
           <th
@@ -65,8 +50,8 @@
             [class.active]="order === 'bpg'"
             (click)="setOrder('bpg')"
           >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            BPG
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>BPG
           </th>
 
           <th
@@ -74,8 +59,8 @@
             [class.active]="order === 'tpg'"
             (click)="setOrder('tpg')"
           >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            TPG
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>TPG
           </th>
 
           <th
@@ -83,8 +68,8 @@
             [class.active]="order === 'fg_'"
             (click)="setOrder('fg_')"
           >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            FG%
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>FG%
           </th>
 
           <th
@@ -92,8 +77,8 @@
             [class.active]="order === '_3p_'"
             (click)="setOrder('_3p_')"
           >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            3P%
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>3P%
           </th>
 
           <th
@@ -101,8 +86,8 @@
             [class.active]="order === 'ft_'"
             (click)="setOrder('ft_')"
           >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            FT%
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>FT%
           </th>
 
           <th
@@ -110,8 +95,8 @@
             [class.active]="order === 'offReb_'"
             (click)="setOrder('offReb_')"
           >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            ORB
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>ORB
           </th>
 
           <th
@@ -119,8 +104,8 @@
             [class.active]="order === 'deffReb_'"
             (click)="setOrder('deffReb_')"
           >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            DRB
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>DRB
           </th>
 
           <th
@@ -128,8 +113,8 @@
             [class.active]="order === 'plusMinus_'"
             (click)="setOrder('plusMinus_')"
           >
-            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-            +/-
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>+/-
           </th>
         </tr>
       </thead>
@@ -144,7 +129,7 @@
         >
           <td>{{ i + 1 }}</td>
           <td>
-            <a routerLink="player/{{ item.id }}">
+            <a routerLink="/player/{{ item.id }}">
               {{ getPlayerName(item.id) }}</a
             >
           </td>
@@ -165,7 +150,9 @@
           <td>{{ removeLeading0(item.ft_) }}</td>
           <td>{{ item.offReb_ | number : "1.1-1" }}</td>
           <td>{{ item.deffReb_ | number : "1.1-1" }}</td>
-          <td>{{ item.plusMinus_ }}</td>
+          <td [style.color]="item.plusMinus_ >= 0 ? 'green' : 'red'">
+            {{ item.plusMinus_ }}
+          </td>
         </tr>
       </tbody>
     </table>
