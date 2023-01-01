@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Playoffs } from '../../models/playoffs';
+import { PlayoffsService } from '../../services/playoffs.service';
 
 @Component({
   selector: 'playoffs',
@@ -9,5 +10,13 @@ import { Playoffs } from '../../models/playoffs';
 export class PlayoffsComponent implements OnInit {
   playoffs!: Playoffs[];
 
+  constructor(private service: PlayoffsService) {}
+
   ngOnInit(): void {}
+
+  findAll() {
+    this.service.findAll().subscribe((response) => {
+      this.playoffs = response;
+    });
+  }
 }

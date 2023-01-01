@@ -25,6 +25,12 @@ const routes: Routes = [
       ),
   },
 
+  {
+    path: 'playoffs',
+    loadChildren: () =>
+      import('./public/playoffs/playoffs.module').then((m) => m.PlayoffsModule),
+  },
+
   { path: '', pathMatch: 'full', redirectTo: 'home' },
 
   { path: '**', redirectTo: 'home' },
