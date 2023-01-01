@@ -1,42 +1,81 @@
+@import "../../../../../assets/scss/variables.scss";
+@import "../../../../../assets/scss/teamsColors.scss";
+
 .playoffs-grid {
   display: grid;
-
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-
-  gap: 0px;
   height: 100%;
-}
 
-#first-round {
-  background-color: #b87d5b;
-  grid-row-start: 1;
-  grid-column-start: 1;
+  .card {
+    margin: 10px;
+    .list-group {
+      width: 187px;
+      .list-group-item {
+        width: 187px;
+        margin: 0;
+        padding: 0;
+        background: $primary-color;
+        font-size: 15px;
+        text-align: center;
+        color: $white;
 
-  grid-row-end: 6;
-  grid-column-end: 2;
-}
-#second-round {
-  background-color: #5d7559;
-  grid-row-start: 1;
-  grid-column-start: 2;
+        .badge {
+          margin-left: 5px;
+        }
 
-  grid-row-end: 6;
-  grid-column-end: 3;
-}
-#conference-finals {
-  background-color: #65fbaf;
-  grid-row-start: 1;
-  grid-column-start: 3;
+        img {
+          width: 20px;
+          vertical-align: middle;
+          margin: 5px;
+        }
+      }
+    }
+  }
 
-  grid-row-end: 6;
-  grid-column-end: 4;
-}
-#finals {
-  background-color: #b77856;
-  grid-row-start: 1;
-  grid-column-start: 4;
+  #first-round {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
-  grid-row-end: 6;
-  grid-column-end: 5;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 6;
+    grid-column-end: 2;
+  }
+  #second-round {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 40px;
+
+    grid-row-start: 1;
+    grid-column-start: 2;
+
+    grid-row-end: 6;
+    grid-column-end: 3;
+  }
+  #conference-finals {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 40px;
+
+    grid-row-start: 1;
+    grid-column-start: 3;
+    grid-row-end: 6;
+    grid-column-end: 4;
+  }
+  #finals {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 40px;
+
+    grid-row-start: 1;
+    grid-column-start: 4;
+
+    grid-row-end: 6;
+    grid-column-end: 5;
+  }
 }

@@ -1,6 +1,170 @@
 <div class="playoffs-grid">
-  <div id="first-round">&nbsp;</div>
-  <div id="second-round">&nbsp;</div>
-  <div id="conference-finals">&nbsp;</div>
-  <div id="finals">&nbsp;</div>
+  <div id="first-round">
+    <div class="card" *ngFor="let game of firstRound">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <mat-icon
+            ><img [src]="teamLogo + [game.team1] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ game.team1 }}
+          <span
+            [ngClass]="
+              game.wins1 > game.wins2
+                ? 'bg-success'
+                : game.wins2 > game.wins1
+                ? 'bg-danger'
+                : ''
+            "
+            class="badge rounded-pill"
+          >
+            {{ game.wins1 }}</span
+          >
+        </li>
+        <li class="list-group-item">
+          <mat-icon
+            ><img [src]="teamLogo + [game.team2] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ game.team2 }}
+          <span
+            [ngClass]="
+              game.wins2 > game.wins1
+                ? 'bg-success'
+                : game.wins1 > game.wins2
+                ? 'bg-danger'
+                : ''
+            "
+            class="badge rounded-pill"
+          >
+            {{ game.wins2 }}</span
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="second-round">
+    <div class="card" *ngFor="let game of secondRound">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <mat-icon
+            ><img [src]="teamLogo + [game.team1] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ game.team1 }}
+          <span
+            [ngClass]="
+              game.wins1 > game.wins2
+                ? 'bg-success'
+                : game.wins2 > game.wins1
+                ? 'bg-danger'
+                : ''
+            "
+            class="badge rounded-pill"
+          >
+            {{ game.wins1 }}</span
+          >
+        </li>
+        <li class="list-group-item">
+          <mat-icon
+            ><img [src]="teamLogo + [game.team2] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ game.team2 }}
+          <span
+            [ngClass]="
+              game.wins2 > game.wins1
+                ? 'bg-success'
+                : game.wins1 > game.wins2
+                ? 'bg-danger'
+                : ''
+            "
+            class="badge rounded-pill"
+          >
+            {{ game.wins2 }}</span
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="conference-finals">
+    <div class="card" *ngFor="let game of conferenceFinals">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <mat-icon
+            ><img [src]="teamLogo + [game.team1] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ game.team1 }}
+          <span
+            [ngClass]="
+              game.wins1 > game.wins2
+                ? 'bg-success'
+                : game.wins2 > game.wins1
+                ? 'bg-danger'
+                : ''
+            "
+            class="badge rounded-pill"
+          >
+            {{ game.wins1 }}</span
+          >
+        </li>
+        <li class="list-group-item">
+          <mat-icon
+            ><img [src]="teamLogo + [game.team2] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ game.team2 }}
+          <span
+            [ngClass]="
+              game.wins2 > game.wins1
+                ? 'bg-success'
+                : game.wins1 > game.wins2
+                ? 'bg-danger'
+                : ''
+            "
+            class="badge rounded-pill"
+          >
+            {{ game.wins2 }}</span
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="finals">
+    <div class="card" *ngFor="let game of finals">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <mat-icon
+            ><img [src]="teamLogo + [game.team1] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ game.team1 }}
+          <span
+            [ngClass]="
+              game.wins1 > game.wins2
+                ? 'bg-success'
+                : game.wins2 > game.wins1
+                ? 'bg-danger'
+                : ''
+            "
+            class="badge rounded-pill"
+          >
+            {{ game.wins1 }}</span
+          >
+        </li>
+        <li class="list-group-item">
+          <mat-icon
+            ><img [src]="teamLogo + [game.team2] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ game.team2 }}
+          <span
+            [ngClass]="
+              game.wins2 > game.wins1
+                ? 'bg-success'
+                : game.wins1 > game.wins2
+                ? 'bg-danger'
+                : ''
+            "
+            class="badge rounded-pill"
+          >
+            {{ game.wins2 }}</span
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

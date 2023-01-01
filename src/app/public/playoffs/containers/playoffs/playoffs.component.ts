@@ -12,7 +12,9 @@ export class PlayoffsComponent implements OnInit {
 
   constructor(private service: PlayoffsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.findAll();
+  }
 
   findAll() {
     this.service.findAll().subscribe((response) => {
