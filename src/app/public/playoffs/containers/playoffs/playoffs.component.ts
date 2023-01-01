@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Playoffs } from '../../models/playoffs';
 
 @Component({
   selector: 'playoffs',
@@ -6,5 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./playoffs.component.scss'],
 })
 export class PlayoffsComponent implements OnInit {
+  playoffs!: Playoffs[];
+
   ngOnInit(): void {}
 }
