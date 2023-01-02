@@ -1,5 +1,4 @@
-import { PlayoffStats } from 'src/app/shared/models/playoffStats';
-
+import { PlayoffStats } from '../../playoffs/models/playoffStats';
 import { Statistics } from '../../statistics/models/statistics';
 
 export interface Player {

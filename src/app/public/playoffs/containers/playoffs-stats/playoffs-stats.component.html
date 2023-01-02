@@ -1,1 +1,8 @@
-<p>playoffs-stats works!</p>
+<div class="container">
+  <ng-container *ngIf="!!offStats">
+    <playoffs-stats-table
+      [offStats]="offStats"
+      [players]="players"
+    ></playoffs-sta-table>
+  </ng-container>
+</div>
