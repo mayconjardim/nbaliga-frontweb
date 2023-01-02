@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Player } from '../../models/player';
 import { ActivatedRoute } from '@angular/router';
 import { PlayerService } from '../../services/player.service';
-import { SeasonStats } from 'src/app/shared/models/seasonStats';
+import { Statistics } from 'src/app/public/statistics/models/statistics';
 
 @Component({
   selector: 'player',
@@ -11,7 +11,7 @@ import { SeasonStats } from 'src/app/shared/models/seasonStats';
 })
 export class PlayerComponent {
   player!: Player;
-  playerSeasonStats!: SeasonStats;
+  playerSeasonStats!: Statistics;
 
   constructor(private route: ActivatedRoute, private service: PlayerService) {}
 

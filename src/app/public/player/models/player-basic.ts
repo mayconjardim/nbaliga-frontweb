@@ -1,4 +1,4 @@
-import { SeasonStats } from 'src/app/shared/models/seasonStats';
+import { Statistics } from '../../statistics/models/statistics';
 
 export interface PlayerBasic {
   id: number;
@@ -15,7 +15,7 @@ export interface PlayerBasic {
   contract3: number;
   contract4: number;
   contract5: number;
-  seasonStats: SeasonStats[];
+  seasonStats: Statistics[];
   assistsPerGame: number;
   contractLength: number;
   pointsPerGame: number;

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { Player } from '../../models/player';
-import { SeasonStats } from 'src/app/shared/models/seasonStats';
+import { Statistics } from 'src/app/public/statistics/models/statistics';
 
 @Component({
   selector: 'player-header',
@@ -10,7 +10,7 @@ import { SeasonStats } from 'src/app/shared/models/seasonStats';
 })
 export class PlayerHeaderComponent {
   @Input() player!: Player;
-  @Input() playerSeasonStats!: SeasonStats;
+  @Input() playerSeasonStats!: Statistics;
 
   playerImg = 'assets/images/players/';
   png = '.png';

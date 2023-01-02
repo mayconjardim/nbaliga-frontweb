@@ -1,5 +1,6 @@
 import { PlayoffStats } from 'src/app/shared/models/playoffStats';
-import { SeasonStats } from 'src/app/shared/models/seasonStats';
+
+import { Statistics } from '../../statistics/models/statistics';
 
 export interface Player {
   id: any;
@@ -87,6 +88,6 @@ export interface Player {
   birdyears: number;
   pointsPerGame: number;
   contractLength: number;
-  seasonStats: SeasonStats[];
+  seasonStats: Statistics[];
   playoffStats: PlayoffStats[];
 }
