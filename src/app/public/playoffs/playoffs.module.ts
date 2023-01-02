@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, Routes } from '@angular/router';
+import { OrderModule } from 'ngx-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
-import { PlayoffsTableComponent } from './components/playoffs-table/playoffs-table.component';
-import { PlayoffsComponent } from './containers/playoffs/playoffs.component';
-import { PlayoffsStatsComponent } from './containers/playoffs-stats/playoffs-stats.component';
 import { PlayoffsStatsTableComponent } from './components/playoffs-stats-table/playoffs-stats-table.component';
+import { PlayoffsTableComponent } from './components/playoffs-table/playoffs-table.component';
+import { PlayoffsStatsComponent } from './containers/playoffs-stats/playoffs-stats.component';
+import { PlayoffsComponent } from './containers/playoffs/playoffs.component';
 
 export const routes: Routes = [
   { path: '', component: PlayoffsComponent },
@@ -20,6 +22,12 @@ export const routes: Routes = [
     PlayoffsStatsComponent,
     PlayoffsStatsTableComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), MatIconModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatIconModule,
+    OrderModule,
+    NgxPaginationModule,
+  ],
 })
 export class PlayoffsModule {}

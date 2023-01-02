@@ -1,1 +1,163 @@
-<p>playoffs-stats-table works!</p>
+<div class="container-stats">
+  <div class="container-stats-table table-responsive">
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th scope="col">PLAYER</th>
+
+          <th>Team</th>
+          <th>GP</th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'mpg'"
+            (click)="setOrder('mpg')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            MPG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'ppgPct'"
+            (click)="setOrder('ppgPct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>PPG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'rebPct'"
+            (click)="setOrder('rebPct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>RPG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'astPct'"
+            (click)="setOrder('astPct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>APG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'blocksPct'"
+            (click)="setOrder('blocksPct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>BPG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'turnoversPct'"
+            (click)="setOrder('turnoversPct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>TPG
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'fgPct'"
+            (click)="setOrder('fgPct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>FG%
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === '_3Pct'"
+            (click)="setOrder('_3Pct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>3P%
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'ftPct'"
+            (click)="setOrder('ftPct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>FT%
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'offRebPct'"
+            (click)="setOrder('offRebPct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>ORB
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'deffRebPct'"
+            (click)="setOrder('deffRebPct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>DRB
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'plusMinusPct'"
+            (click)="setOrder('plusMinusPct')"
+          >
+            <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>+/-
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of offStats
+              | orderBy : order : reverse : caseInsensitive
+              | paginate : { itemsPerPage: 50, currentPage: p };
+            let i = index
+          "
+        >
+          <td>{{ i + 1 }}</td>
+          <td>
+            <a routerLink="/player/{{ item.id }}">
+              {{ getPlayerName(item.id) }}</a
+            >
+          </td>
+          <td>
+            <mat-icon
+              ><img [src]="teamLogo + [item.team] + '.svg'" alt="team logo"
+            /></mat-icon>
+          </td>
+          <td>{{ item.games }}</td>
+          <td>{{ item.mpg | number : "1.1-1" }}</td>
+          <td>{{ item.ppgPct | number : "1.1-1" }}</td>
+          <td>{{ item.rebPct | number : "1.1-1" }}</td>
+          <td>{{ item.astPct | number : "1.1-1" }}</td>
+          <td>{{ item.blocksPct | number : "1.1-1" }}</td>
+          <td>{{ item.turnoversPct | number : "1.1-1" }}</td>
+          <td>{{ removeLeading0(item.fgPct) }}</td>
+          <td>{{ removeLeading0(item._3Pct) }}</td>
+          <td>{{ removeLeading0(item.ftPct) }}</td>
+          <td>{{ item.offRebPct | number : "1.1-1" }}</td>
+          <td>{{ item.deffRebPct | number : "1.1-1" }}</td>
+          <td [style.color]="item.plusMinusPct >= 0 ? 'green' : 'red'">
+            {{ item.plusMinusPct }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="container-stats-pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
