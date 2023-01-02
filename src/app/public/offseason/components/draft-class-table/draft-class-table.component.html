@@ -1,1 +1,213 @@
-<p>draft-class-table works!</p>
+<div class="draftclass-container">
+  <div class="draftclass-container-section table-responsive">
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">PLAYER</th>
+          <th scope="col">POS</th>
+          <th scope="col">AGE</th>
+          <th
+            scope="col"
+            [class.active]="order === 'currentrating'"
+            (click)="setOrder('currentrating')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            CUR
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'futurerating'"
+            (click)="setOrder('futurerating')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            POT
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_inside'"
+            (click)="setOrder('pot_inside')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            INS
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_jumpshot'"
+            (click)="setOrder('pot_jumpshot')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            JPS
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_freethrow'"
+            (click)="setOrder('pot_freethrow')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            FTS
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_3pshot'"
+            (click)="setOrder('pot_3pshot')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            3PS
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_handling'"
+            (click)="setOrder('pot_handling')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            HND
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_passing'"
+            (click)="setOrder('pot_passing')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            PAS
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_orebounding'"
+            (click)="setOrder('pot_orebounding')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            ORB
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_drebounding'"
+            (click)="setOrder('pot_drebounding')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            DRB
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_postdefense'"
+            (click)="setOrder('pot_postdefense')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            PSD
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_perimeterdefense'"
+            (click)="setOrder('pot_perimeterdefense')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            PRD
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_stealing'"
+            (click)="setOrder('pot_stealing')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            STL
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'pot_blocking'"
+            (click)="setOrder('pot_blocking')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            BLK
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'quickness'"
+            (click)="setOrder('quickness')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            QKN
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'strength'"
+            (click)="setOrder('strength')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            STR
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'jumping'"
+            (click)="setOrder('jumping')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            JMP
+          </th>
+
+          <th
+            scope="col"
+            [class.active]="order === 'stamina'"
+            (click)="setOrder('stamina')"
+          >
+            <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            STA
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let player of players! | orderBy : order : reverse : caseInsensitive
+          "
+        >
+          <td>
+            <img
+              [src]="
+                playerImg + [player.lastname] + '_' + [player.firstname] + [png]
+              "
+              onerror="this.src='../../../../../assets/images/players/blank.png';"
+              alt="player img"
+              class="player-img {{ teamColors(player.currentteam) }}"
+            />
+            <a routerLink="/player/{{ player.id }}">{{ player.name }}</a>
+          </td>
+          <td>{{ getPosition(player.positionnumber) }}</td>
+          <td>{{ player.age }}</td>
+          <td><img [src]="ratingColors(player.currentrating)" /></td>
+          <td><img [src]="ratingColors(player.futurerating)" /></td>
+          <td>{{ player.pot_inside }}</td>
+          <td>{{ player.pot_jumpshot }}</td>
+          <td>{{ player.pot_freethrow }}</td>
+          <td>{{ player.pot_3pshot }}</td>
+          <td>{{ player.pot_handling }}</td>
+          <td>{{ player.pot_passing }}</td>
+          <td>{{ player.pot_orebounding }}</td>
+          <td>{{ player.pot_drebounding }}</td>
+          <td>{{ player.pot_postdefense }}</td>
+          <td>{{ player.perimeterdefense }}</td>
+          <td>{{ player.pot_stealing }}</td>
+          <td>{{ player.pot_blocking }}</td>
+          <td>{{ player.quickness }}</td>
+          <td>{{ player.strength }}</td>
+          <td>{{ player.jumping }}</td>
+          <td>{{ player.stamina }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

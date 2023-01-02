@@ -1,1 +1,5 @@
-<p>draft-class works!</p>
+<div class="container">
+  <ng-container *ngIf="!!players">
+    <app-draft-class-table [players]="players"></app-draft-class-table>
+  </ng-container>
+</div>

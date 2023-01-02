@@ -31,6 +31,14 @@ const routes: Routes = [
       import('./public/playoffs/playoffs.module').then((m) => m.PlayoffsModule),
   },
 
+  {
+    path: 'offseason',
+    loadChildren: () =>
+      import('./public/offseason/offseason.module').then(
+        (m) => m.OffseasonModule
+      ),
+  },
+
   { path: '', pathMatch: 'full', redirectTo: 'home' },
 
   { path: '**', redirectTo: 'home' },
