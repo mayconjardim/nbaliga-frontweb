@@ -77,15 +77,15 @@
           ><mat-icon>calendar_month</mat-icon>Tabela</a
         >
         <a mat-menu-item routerLink="playoffs/stats"
-          ><mat-icon>elevator</mat-icon>Estatísticas</a
-        >
+          ><mat-icon>percent</mat-icon>Estatísticas
+        </a>
       </mat-menu>
 
       <mat-menu #pos="matMenu">
         <a mat-menu-item [ngStyle]="setMyStyles()">
-          <mat-icon>calendar_month</mat-icon>Draft Central
+          <mat-icon>elevator</mat-icon>Draft Classe
         </a>
-        <a mat-menu-item><mat-icon>elevator</mat-icon>Free Agency</a>
+        <a mat-menu-item><mat-icon>dvr</mat-icon>Draft Loteria</a>
       </mat-menu>
     </mat-nav-list>
   </mat-drawer>

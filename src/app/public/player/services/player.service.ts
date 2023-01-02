@@ -29,4 +29,8 @@ export class PlayerService {
   findAllBasic(): Observable<PlayerBasic[]> {
     return this.http.get<PlayerBasic[]>(`${API_CONFIG.baseUrl}/players/basic`);
   }
+
+  findAllDraftClass(): Observable<Player[]> {
+    return this.http.get<Player[]>(`${API_CONFIG.baseUrl}/players/draftclass`);
+  }
 }
