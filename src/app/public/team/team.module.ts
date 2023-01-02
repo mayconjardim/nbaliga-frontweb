@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule, Routes } from '@angular/router';
 import { NgPipesModule } from 'ngx-pipes';
+import { ImgFallbackModule } from 'ngx-img-fallback';
 
 import { TeamContractsComponent } from './components/team-contracts/team-contracts.component';
 import { TeamDraftpicksComponent } from './components/team-draftpicks/team-draftpicks.component';
@@ -29,6 +30,7 @@ export const routes: Routes = [{ path: '', component: TeamComponent }];
     NgPipesModule,
     MatTabsModule,
     MatIconModule,
+    ImgFallbackModule,
   ],
 })
 export class TeamModule {}

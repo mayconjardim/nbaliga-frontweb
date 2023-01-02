@@ -11,6 +11,7 @@ export class TeamRosterComponent {
   @Input() team!: Team;
   playerImg = 'assets/images/players/';
   png = '.png';
+  error = 'assets/images/players/blank.png';
 
   ratingColors(rating: string) {
     switch (rating) {

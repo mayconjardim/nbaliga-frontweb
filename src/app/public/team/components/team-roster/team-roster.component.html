@@ -6,7 +6,7 @@
   >
     <img
       [src]="playerImg + [player.lastname] + '_' + [player.firstname] + [png]"
-      onerror="this.src='../../../../../assets/images/players/blank.png';"
+      src-fallback="{{ error }}"
       class="player-img"
       alt="player img"
     />

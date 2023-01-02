@@ -14,6 +14,7 @@ export class PlayerHeaderComponent {
 
   playerImg = 'assets/images/players/';
   png = '.png';
+  error = 'assets/images/players/blank.png';
 
   teamColors(team: string) {
     if (team == '76ers') {

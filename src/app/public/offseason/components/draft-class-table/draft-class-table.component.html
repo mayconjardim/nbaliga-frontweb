@@ -180,7 +180,7 @@
               [src]="
                 playerImg + [player.lastname] + '_' + [player.firstname] + [png]
               "
-              onerror="this.src='../../../../../assets/images/players/blank.png';"
+              src-fallback="{{ error }}"
               alt="player img"
               class="player-img {{ teamColors(player.currentteam) }}"
             />

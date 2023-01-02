@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, Routes } from '@angular/router';
+import { ImgFallbackModule } from 'ngx-img-fallback';
 import { NgPipesModule } from 'ngx-pipes';
 
 import { PlayerHeaderComponent } from './components/player-header/player-header.component';
@@ -23,6 +24,7 @@ export const routes: Routes = [{ path: '', component: PlayerComponent }];
     RouterModule.forChild(routes),
     NgPipesModule,
     MatIconModule,
+    ImgFallbackModule,
   ],
 })
 export class PlayerModule {}

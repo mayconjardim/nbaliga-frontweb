@@ -12,6 +12,7 @@ export class DraftClassTableComponent {
 
   playerImg = 'assets/images/players/';
   png = '.png';
+  error = 'assets/images/players/blank.png';
 
   order: string = 'futurerating';
   reverse: boolean = false;

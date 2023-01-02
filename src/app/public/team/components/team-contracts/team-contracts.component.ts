@@ -15,6 +15,7 @@ export class TeamContractsComponent {
 
   playerImg = 'assets/images/players/';
   png = '.png';
+  error = 'assets/images/players/blank.png';
 
   ratingColors(rating: string) {
     switch (rating) {
