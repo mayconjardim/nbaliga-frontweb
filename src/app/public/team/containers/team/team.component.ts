@@ -20,7 +20,11 @@ export class TeamComponent implements OnInit {
     private route: ActivatedRoute,
     private service: TeamService,
     private scheduleService: ScheduleService
-  ) {}
+  ) {
+    this.route.paramMap.subscribe(() => {
+      this.getTeam();
+    });
+  }
 
   ngOnInit(): void {
     this.getTeam();
