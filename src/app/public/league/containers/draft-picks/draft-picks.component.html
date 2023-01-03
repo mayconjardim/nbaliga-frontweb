@@ -1,1 +1,3 @@
-<p>draft-picks works!</p>
+<ng-container *ngIf="!!picks">
+  <draft-picks-table [picks]="picks"></draft-picks-table>
+</ng-container>

@@ -1,1 +1,30 @@
-<p>draft-picks-table works!</p>
+<div class="container">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">TEAM</th>
+        <th scope="col">YEAR</th>
+        <th scope="col">ROUND</th>
+        <th scope="col">ORIGINAL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let picks of picks">
+        <td>
+          <mat-icon
+            ><img [src]="teamLogo + [picks.ownedby] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ picks.ownedby }}
+        </td>
+        <td>{{ picks.year }}</td>
+        <td>{{ picks.round }}</td>
+        <td>
+          <mat-icon
+            ><img [src]="teamLogo + [picks.team] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ picks.team }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
