@@ -39,6 +39,12 @@ const routes: Routes = [
       ),
   },
 
+  {
+    path: 'league',
+    loadChildren: () =>
+      import('./public/league/league.module').then((m) => m.LeagueModule),
+  },
+
   { path: '', pathMatch: 'full', redirectTo: 'home' },
 
   { path: '**', redirectTo: 'home' },
