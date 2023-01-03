@@ -18,7 +18,11 @@ export class HeadToHeadComponent implements OnInit {
     private service: HeadToHeadService,
     private teamService: TeamService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.route.paramMap.subscribe(() => {
+      this.findByTeam();
+    });
+  }
 
   ngOnInit(): void {
     this.findByTeam();

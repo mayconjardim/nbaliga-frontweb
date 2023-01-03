@@ -1,0 +1,33 @@
+<div class="section table-responsive">
+  <table class="table table-dark table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Opponent</th>
+        <th scope="col">Wins</th>
+        <th scope="col">Losses</th>
+        <th scope="col">Playoffs Wins</th>
+        <th scope="col">Playoffs Losses</th>
+        <th scope="col">Playoffs Series Wins</th>
+        <th scope="col">Playoffs Series Losses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of h2h">
+        <td>
+          <mat-icon>
+            <img
+              [src]="teamLogo + [getTeamName(item.oppId)] + '.svg'"
+              alt="team logo"
+          /></mat-icon>
+          {{ getTeamName(item.oppId) }}
+        </td>
+        <td style="color: green">{{ item.totalWins }}</td>
+        <td style="color: red">{{ item.totalLosses }}</td>
+        <td style="color: green">{{ item.playoffWins }}</td>
+        <td style="color: red">{{ item.playoffLosses }}</td>
+        <td style="color: green">{{ item.playoffSeriesWins }}</td>
+        <td style="color: red">{{ item.playoffSeriesLosses }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,3 +1,6 @@
 <div class="container">
   <head-to-head-teams [teams]="teams"></head-to-head-teams>
+  <ng-container *ngIf="!!h2h">
+    <head-to-head-table [h2h]="h2h"></head-to-head-table>
+  </ng-container>
 </div>
