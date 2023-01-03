@@ -1,8 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, Routes } from '@angular/router';
-import { SalaryCapComponent } from './containers/salary-cap/salary-cap.component';
+import { OrderModule } from 'ngx-order-pipe';
+
 import { SalaryCapTableComponent } from './components/salary-cap-table/salary-cap-table.component';
+import { SalaryCapComponent } from './containers/salary-cap/salary-cap.component';
 
 export const routes: Routes = [
   { path: 'salarycap', component: SalaryCapComponent },
@@ -10,6 +13,11 @@ export const routes: Routes = [
 
 @NgModule({
   declarations: [SalaryCapComponent, SalaryCapTableComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatIconModule,
+    OrderModule,
+  ],
 })
 export class LeagueModule {}

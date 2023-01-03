@@ -1,1 +1,50 @@
-<p>salary-cap-table works!</p>
+<div class="container table responsive">
+  <table class="table table-dark table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">TEAM</th>
+        <th
+          scope="col"
+          [class.active]="order === 'totalSalary'"
+          (click)="setOrder('totalSalary')"
+        >
+          <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+          PAYROLL
+        </th>
+        <th
+          scope="col"
+          [class.active]="order === 'capSpace'"
+          (click)="setOrder('capSpace')"
+        >
+          <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+          CAP SPACE
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let team of teams | orderBy : order : reverse : caseInsensitive;
+          let i = index
+        "
+      >
+        <td>{{ i + 1 }}</td>
+        <td>
+          <mat-icon
+            ><img [src]="teamLogo + [team.name] + '.svg'" alt="team logo"
+          /></mat-icon>
+          {{ team.cityName + " " + team.name }}
+        </td>
+        <td>{{ team.totalSalary | currency : "USD" : "symbol" : "1.0" }}</td>
+        <td
+          [ngStyle]="{
+            color: team.capSpace < 0 ? 'red' : 'green'
+          }"
+        >
+          {{ team.capSpace | currency : "USD" : "symbol" : "1.0" }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

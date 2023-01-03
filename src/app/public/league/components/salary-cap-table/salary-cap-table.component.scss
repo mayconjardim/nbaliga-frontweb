@@ -1,0 +1,38 @@
+@import "../../../../../assets/scss/variables.scss";
+@import "../../../../../assets/scss/teamsColors.scss";
+
+.container {
+  .table {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 10px;
+    white-space: nowrap;
+
+    th {
+      span {
+        visibility: hidden;
+      }
+
+      &.active {
+        color: $secondary-color;
+
+        span {
+          visibility: visible;
+        }
+      }
+    }
+
+    td {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
+      .mat-icon {
+        img {
+          width: 20px;
+          vertical-align: text-bottom;
+        }
+      }
+    }
+  }
+}

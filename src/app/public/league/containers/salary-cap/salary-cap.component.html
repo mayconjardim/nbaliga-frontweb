@@ -1,1 +1,3 @@
-<p>salary-cap works!</p>
+<ng-container *ngIf="!!teams">
+  <salary-cap-table [teams]="teams"></salary-cap-table>
+</ng-container>

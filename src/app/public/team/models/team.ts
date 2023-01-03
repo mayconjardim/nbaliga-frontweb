@@ -73,6 +73,7 @@ export interface Team {
   rpg: number;
   apg: number;
   strk: string;
+  capSpace: number;
   players?: Player[];
   picks: any[];
 }
