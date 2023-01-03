@@ -7,13 +7,20 @@ import { OrderModule } from 'ngx-order-pipe';
 import { SalaryCapTableComponent } from './components/salary-cap-table/salary-cap-table.component';
 import { SalaryCapComponent } from './containers/salary-cap/salary-cap.component';
 import { DraftPicksComponent } from './containers/draft-picks/draft-picks.component';
+import { DraftPicksTableComponent } from './components/draft-picks-table/draft-picks-table.component';
 
 export const routes: Routes = [
   { path: 'salarycap', component: SalaryCapComponent },
+  { path: 'draftpicks', component: DraftPicksComponent },
 ];
 
 @NgModule({
-  declarations: [SalaryCapComponent, SalaryCapTableComponent, DraftPicksComponent],
+  declarations: [
+    SalaryCapComponent,
+    SalaryCapTableComponent,
+    DraftPicksComponent,
+    DraftPicksTableComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
