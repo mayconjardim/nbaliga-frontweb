@@ -9,10 +9,12 @@ import { SalaryCapComponent } from './containers/salary-cap/salary-cap.component
 import { DraftPicksComponent } from './containers/draft-picks/draft-picks.component';
 import { DraftPicksTableComponent } from './components/draft-picks-table/draft-picks-table.component';
 import { HeadToHeadComponent } from './containers/head-to-head/head-to-head.component';
+import { HeadToHeadTeamsComponent } from './components/head-to-head-teams/head-to-head-teams.component';
 
 export const routes: Routes = [
   { path: 'salarycap', component: SalaryCapComponent },
   { path: 'draftpicks', component: DraftPicksComponent },
+  { path: 'headtohead', component: HeadToHeadComponent },
 ];
 
 @NgModule({
@@ -22,6 +24,7 @@ export const routes: Routes = [
     DraftPicksComponent,
     DraftPicksTableComponent,
     HeadToHeadComponent,
+    HeadToHeadTeamsComponent,
   ],
   imports: [
     CommonModule,

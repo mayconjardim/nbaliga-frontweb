@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Draftpicks } from '../models/draftpicks';
-import { API_CONFIG } from 'src/app/config/api.config';
 import { Observable } from 'rxjs';
+import { API_CONFIG } from 'src/app/config/api.config';
+
+import { HeadToHead } from './../models/head-to-head';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +11,8 @@ import { Observable } from 'rxjs';
 export class HeadToHeadService {
   constructor(private http: HttpClient) {}
 
-  findByTeam(id: any): Observable<Draftpicks[]> {
-    return this.http.get<Draftpicks[]>(
+  findByTeam(id: any): Observable<HeadToHead[]> {
+    return this.http.get<HeadToHead[]>(
       `${API_CONFIG.baseUrl}/headtohead/${id}`
     );
   }
