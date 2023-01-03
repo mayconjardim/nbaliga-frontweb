@@ -1,10 +1,12 @@
-import { Schedule } from '../../../league/models/schedule';
-import { ScheduleService } from '../../../league/services/schedule.service';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { PlayerService } from './../../../player/services/player.service';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { Schedule } from '../../../league/models/schedule';
+import { ScheduleService } from '../../../league/services/schedule.service';
 import { Team } from '../../models/team';
 import { TeamService } from '../../services/team.service';
+import { PlayerBasic } from './../../../player/models/player-basic';
 
 @Component({
   selector: 'team',

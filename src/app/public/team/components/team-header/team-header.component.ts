@@ -41,4 +41,25 @@ export class TeamHeaderComponent {
       return '-';
     }
   }
+
+  findPositionReverse(prop: string): any {
+    if (this.team.points > 0) {
+      let sortedTeams = this.teams.slice().sort((a, b) => {
+        if (a[prop] < b[prop]) {
+          return -1;
+        } else if (a[prop] > b[prop]) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      let position = sortedTeams.findIndex(
+        (t) => t.name === this.team.name && t[prop] === this.team[prop]
+      );
+
+      return position + 1 + 'th';
+    } else {
+      return '-';
+    }
+  }
 }

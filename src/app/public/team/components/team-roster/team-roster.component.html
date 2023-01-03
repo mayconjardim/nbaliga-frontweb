@@ -23,8 +23,9 @@
           {{ player.age }} years old
         </li>
         <li class="list-group-item">
-          {{ player.pointsPerGame | number : "1.1-1" }} PPG - 13.0 APG - 15.2
-          RPG
+          {{ player.pointsPerGame | number : "1.1-1" }} PPG -
+          {{ player.rebsPerGame | number : "1.1-1" }} APG -
+          {{ player.assistsPerGame | number : "1.1-1" }} RPG
         </li>
         <li class="list-group-item">
           $ {{ player.contract1 | number }} ({{ player.contractLength }})

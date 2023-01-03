@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 import { Team } from '../../models/team';
+import { PlayerService } from 'src/app/public/player/services/player.service';
+import { PlayerBasic } from 'src/app/public/player/models/player-basic';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'team-roster',

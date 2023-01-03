@@ -21,7 +21,7 @@
       </li>
       <li class="list-group-item oppg">
         <span>{{ team.oppg | number : "1.1-1" }}</span>
-        <p>{{ findPosition("oppg") }}</p>
+        <p>{{ findPositionReverse("oppg") }}</p>
         <span>OPPG</span>
       </li>
       <li class="list-group-item asp">
@@ -45,7 +45,9 @@
         <p>
           ROAD <span>{{ team.roadWins }} - {{ team.roadLosses }}</span>
         </p>
-        <p>LAST 10 <span>16 - 25</span></p>
+        <p>
+          Championships: <span>{{ team.championships }} </span>
+        </p>
       </li>
     </ul>
   </div>

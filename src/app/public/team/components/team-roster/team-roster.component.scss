@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 
   .card {
-    margin: 5px;
+    margin: 5px 3px 0 5px;
     width: 185px;
     border-radius: 4px;
     background-repeat: no-repeat;
@@ -48,6 +48,7 @@
 
     .card {
       width: 176px;
+      flex-grow: 0;
       .list-group {
         .list-group-item {
           margin: 0;
