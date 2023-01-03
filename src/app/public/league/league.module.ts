@@ -8,6 +8,7 @@ import { SalaryCapTableComponent } from './components/salary-cap-table/salary-ca
 import { SalaryCapComponent } from './containers/salary-cap/salary-cap.component';
 import { DraftPicksComponent } from './containers/draft-picks/draft-picks.component';
 import { DraftPicksTableComponent } from './components/draft-picks-table/draft-picks-table.component';
+import { HeadToHeadComponent } from './containers/head-to-head/head-to-head.component';
 
 export const routes: Routes = [
   { path: 'salarycap', component: SalaryCapComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
     SalaryCapTableComponent,
     DraftPicksComponent,
     DraftPicksTableComponent,
+    HeadToHeadComponent,
   ],
   imports: [
     CommonModule,

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API_CONFIG } from 'src/app/config/api.config';
 
-import { Schedule } from './../models/schedule';
+import { Schedule } from '../models/schedule';
 
 @Injectable({
   providedIn: 'root',

@@ -1,5 +1,5 @@
-import { Schedule } from './../../../schedule/models/schedule';
-import { ScheduleService } from './../../../schedule/services/schedule.service';
+import { Schedule } from '../../../league/models/schedule';
+import { ScheduleService } from '../../../league/services/schedule.service';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 

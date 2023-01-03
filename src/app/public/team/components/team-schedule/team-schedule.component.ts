@@ -1,4 +1,4 @@
-import { Schedule } from './../../../schedule/models/schedule';
+import { Schedule } from '../../../league/models/schedule';
 import { Component, Input } from '@angular/core';
 import { Team } from '../../models/team';
 
