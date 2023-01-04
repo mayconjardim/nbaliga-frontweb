@@ -1,5 +1,5 @@
 <div class="container">
-  <table class="table table-dark table-hover">
+  <table class="table table-dark">
     <thead>
       <tr>
         <th scope="col">SEASON</th>
@@ -10,20 +10,20 @@
     </thead>
     <tbody>
       <tr *ngFor="let champ of champs">
-        <th scope="row">{{ champ.season }}</th>
-        <td>
-          <mat-icon
-            ><img [src]="imgLogo + [champ.champ] + '.svg'" alt="team logo"
-          /></mat-icon>
+        <td class="{{ champ.champ }}">
+          {{ champ.season }}
+        </td>
+        <td class="{{ champ.champ }}">
+          <img [src]="imgLogo + [champ.champ] + '.svg'" alt="team logo" />
           {{ champ.champ }}
         </td>
-        <td>{{ champ.champWins }}-{{ champ.loserWins }}</td>
-        <td>
-          <mat-icon
-            ><img
-              [src]="imgLogo + [champ.loser] + '.svg'"
-              alt="team logo" /></mat-icon
-          >{{ champ.loser }}
+        <td class="{{ champ.champ }}">
+          {{ champ.champWins }}-{{ champ.loserWins }}
+        </td>
+        <td class="{{ champ.champ }}">
+          <img [src]="imgLogo + [champ.loser] + '.svg'" alt="team logo" />{{
+            champ.loser
+          }}
         </td>
       </tr>
     </tbody>
