@@ -1,21 +1,24 @@
 @import "../../../../assets/scss/variables.scss";
 @import "../../../../assets/scss/teamsColors.scss";
 
-.table {
+.container {
   width: 100%;
-  border-top: 2px solid $secondary-color;
-  font-size: 10px;
-  white-space: nowrap;
+  .table {
+    width: 100%;
+    border-top: 2px solid $secondary-color;
+    font-size: 10px;
+    white-space: nowrap;
 
-  tbody {
-    td {
-      border-bottom: 10px solid #303030;
-      background-image: none;
-      padding: 5px;
+    tbody {
+      td {
+        border-bottom: 10px solid #303030;
+        background-image: none;
+        padding: 5px;
 
-      img {
-        margin-right: 5px;
-        width: 30px;
+        img {
+          margin-right: 5px;
+          width: 30px;
+        }
       }
     }
   }
